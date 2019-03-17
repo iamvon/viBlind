@@ -1,6 +1,0 @@
-{
-    "python.pythonPath": "venv/bin/python3.5",
-    "python.linting.pep8Enabled": true,
-    "python.linting.enabled": false,
-    "python.linting.pylintEnabled": false
-}
