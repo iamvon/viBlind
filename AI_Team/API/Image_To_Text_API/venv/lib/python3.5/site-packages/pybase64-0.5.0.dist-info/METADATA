@@ -1,0 +1,201 @@
+Metadata-Version: 2.1
+Name: pybase64
+Version: 0.5.0
+Summary: Fast Base64 encoding/decoding
+Home-page: https://github.com/mayeut/pybase64
+Author: Matthieu Darbois
+License: BSD-2-Clause
+Keywords: base64
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Utilities
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: C
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*
+Provides-Extra: test
+Requires-Dist: six (>=1.10.0)
+Provides-Extra: test
+Requires-Dist: pytest (>=3.2.1); extra == 'test'
+
+.. SETUP VARIABLES
+.. |license-status| image:: https://img.shields.io/badge/license-BSD%202--Clause-blue.svg
+  :target: https://github.com/mayeut/pybase64/blob/master/LICENSE
+.. |pypi-status| image:: https://img.shields.io/pypi/v/pybase64.svg
+  :target: https://pypi.python.org/pypi/pybase64
+.. |python-versions| image:: https://img.shields.io/pypi/pyversions/pybase64.svg
+.. |rtd-status| image:: https://readthedocs.org/projects/pybase64/badge/?version=stable
+  :target: http://pybase64.readthedocs.io/en/stable/?badge=stable
+  :alt: Documentation Status
+.. |travis-status| image:: https://travis-ci.org/mayeut/pybase64.svg?branch=master
+  :target: https://travis-ci.org/mayeut/pybase64
+.. |appveyor-status| image:: https://ci.appveyor.com/api/projects/status/kj3l1f3ys2teg9ha/branch/master?svg=true
+  :target: https://ci.appveyor.com/project/mayeut/pybase64/branch/master
+.. |codecov-status| image:: https://codecov.io/gh/mayeut/pybase64/branch/master/graph/badge.svg
+  :target: https://codecov.io/gh/mayeut/pybase64/branch/master
+.. END OF SETUP
+
+Fast Base64 implementation
+==========================
+
+|license-status| |pypi-status| |python-versions| |rtd-status| |travis-status| |appveyor-status| |codecov-status|
+
+This project is a wrapper on `libbase64 <https://github.com/aklomp/base64>`_.
+
+It aims to provide a fast base64 implementation for base64 encoding/decoding.
+
+Installation
+============
+
+.. code::
+
+    pip install pybase64
+
+Usage
+=====
+
+``pybase64`` uses the same API as Python base64 "modern interface" (introduced in Python 2.4) for an easy integration.
+
+To get the fastest decoding, it is recommended to use the ``pybase64.b64decode`` and ``validate=True`` when possible.
+
+.. code:: python
+
+    import pybase64
+
+    print(pybase64.b64encode(b'>>>foo???', altchars='_:'))
+    # b'Pj4_Zm9vPz8:'
+    print(pybase64.b64decode(b'Pj4_Zm9vPz8:', altchars='_:', validate=True))
+    # b'>>>foo???'
+
+    # Standard encoding helpers
+    print(pybase64.standard_b64encode(b'>>>foo???'))
+    # b'Pj4+Zm9vPz8/'
+    print(pybase64.standard_b64decode(b'Pj4+Zm9vPz8/'))
+    # b'>>>foo???'
+
+    # URL safe encoding helpers
+    print(pybase64.urlsafe_b64encode(b'>>>foo???'))
+    # b'Pj4-Zm9vPz8_'
+    print(pybase64.urlsafe_b64decode(b'Pj4-Zm9vPz8_'))
+    # b'>>>foo???'
+
+.. begin cli
+
+A command-line tool is also provided. It has encode, decode and benchmark subcommands.
+
+.. code::
+
+    usage: pybase64 [-h] [-V] {benchmark,encode,decode} ...
+
+    pybase64 command-line tool.
+
+    positional arguments:
+      {benchmark,encode,decode}
+                            tool help
+        benchmark           -h for usage
+        encode              -h for usage
+        decode              -h for usage
+
+    optional arguments:
+      -h, --help            show this help message and exit
+      -V, --version         show program's version number and exit
+
+.. end cli
+
+Full documentation on `Read the Docs <http://pybase64.readthedocs.io/en/stable/?badge=stable>`_.
+
+Benchmark
+=========
+
+.. begin benchmark
+
+Running Python 3.7.2, Apple LLVM version 10.0.0 (clang-1000.11.45.5), Mac OS X 10.14.2 on an Intel Core i7-4870HQ @ 2.50GHz
+
+.. code::
+
+    pybase64 0.5.0 (C extension active - AVX2)
+    bench: altchars=None, validate=False
+    pybase64._pybase64.encodebytes:   1734.776 MB/s (13,271,472 bytes -> 17,928,129 bytes)
+    pybase64._pybase64.b64encode:     4039.539 MB/s (13,271,472 bytes -> 17,695,296 bytes)
+    pybase64._pybase64.b64decode:     1854.423 MB/s (17,695,296 bytes -> 13,271,472 bytes)
+    base64.encodebytes:                 78.352 MB/s (13,271,472 bytes -> 17,928,129 bytes)
+    base64.b64encode:                  539.840 MB/s (13,271,472 bytes -> 17,695,296 bytes)
+    base64.b64decode:                  287.826 MB/s (17,695,296 bytes -> 13,271,472 bytes)
+    bench: altchars=None, validate=True
+    pybase64._pybase64.b64encode:     4156.607 MB/s (13,271,472 bytes -> 17,695,296 bytes)
+    pybase64._pybase64.b64decode:     4107.997 MB/s (17,695,296 bytes -> 13,271,472 bytes)
+    base64.b64encode:                  559.342 MB/s (13,271,472 bytes -> 17,695,296 bytes)
+    base64.b64decode:                  143.674 MB/s (17,695,296 bytes -> 13,271,472 bytes)
+    bench: altchars=b'-_', validate=False
+    pybase64._pybase64.b64encode:     2786.776 MB/s (13,271,472 bytes -> 17,695,296 bytes)
+    pybase64._pybase64.b64decode:     1124.136 MB/s (17,695,296 bytes -> 13,271,472 bytes)
+    base64.b64encode:                  322.427 MB/s (13,271,472 bytes -> 17,695,296 bytes)
+    base64.b64decode:                  205.195 MB/s (17,695,296 bytes -> 13,271,472 bytes)
+    bench: altchars=b'-_', validate=True
+    pybase64._pybase64.b64encode:     2806.271 MB/s (13,271,472 bytes -> 17,695,296 bytes)
+    pybase64._pybase64.b64decode:     2740.456 MB/s (17,695,296 bytes -> 13,271,472 bytes)
+    base64.b64encode:                  314.709 MB/s (13,271,472 bytes -> 17,695,296 bytes)
+    base64.b64decode:                  121.803 MB/s (17,695,296 bytes -> 13,271,472 bytes)
+
+.. end benchmark
+
+.. begin changelog
+
+Changelog
+=========
+0.5.0
+-----
+- Publish python 3.7 wheels
+- Drop python 3.3 support
+
+0.4.0
+-----
+- Speed-up decoding when validate==False
+
+0.3.1
+-----
+- Fix deployment issues
+
+0.3.0
+-----
+- Add encodebytes function
+
+0.2.1
+-----
+- Fixed invalid results on Windows
+
+0.2.0
+-----
+- Added documentation
+- Added subcommands to the main script:
+
+    * help
+    * version
+    * encode
+    * decode
+    * benchmark
+
+0.1.2
+-----
+- Updated base64 native library
+
+0.1.1
+-----
+- Fixed deployment issues
+
+0.1.0
+-----
+- First public release
+
+.. end changelog
+
+
+

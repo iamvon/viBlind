@@ -1,0 +1,3 @@
+[console_scripts]
+pybase64 = pybase64.__main__:main
+
