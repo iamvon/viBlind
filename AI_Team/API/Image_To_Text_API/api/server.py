@@ -59,13 +59,15 @@ class Database:
             
             img_original = base64.b64decode(img_base64)
             # Write to a file
-            fileName = 'bounding_images/test.jpg'
-            with open(fileName, 'wb') as f_output:
+            print(type(name))
+            fileNameBounding = 'bounding_images/output_'+ name[:-4] +'.jpg'
+            with open(fileNameBounding, 'wb') as f_output:
                 f_output.write(img_original)
 
-            test_img = cv2.imread(fileName, 1)
+            test_img = cv2.imread(fileNameBounding, 1)
             test_resize_img = cv2.resize(test_img,(int(width),int(height)))
-            cv2.imwrite("predict_images/test_resize.jpg",test_resize_img)
+            fileNameResize = 'predict_images/output_resize_'+ name[:-4]+ '.jpg' 
+            cv2.imwrite(fileNameResize, test_resize_img)
         cursor4.close()            
         self.connection.close()
 
@@ -98,15 +100,7 @@ def predict():
     
     r = request
     
-    # Convert bytes to string 
-    body = r.data.decode("utf-8")
-    # Convert string to dict 
-    body_dict = ast.literal_eval(body)
-
-    # Convert dict to json
-    body_json = json.dumps(body_dict)
-    loaded_body = json.loads(body_json)
-
+    loaded_body = parse_json_from_request(r)
     # Convert base64 image back to binary
     img_original = base64.b64decode(loaded_body['image'])
     print(loaded_body['name'])
@@ -176,12 +170,23 @@ def predict():
     return Response(response=response_pickled, status=200, mimetype="application/json")
 
 # TODO
-@app.route('/v1/resoures/predict_images/', methods=['GET'])
-def get_image():
-    filename = 'predict_images/test_resize.jpg'
+@app.route('/v1/resoures/predict_images/<name>', methods=['GET'])
+def get_image(name):
+    filename = 'predict_images/output_resize_%s.jpg' % name
+    print(filename)
     return send_file(filename, mimetype='image/gif')
 
-    
+def parse_json_from_request(request):
+    # Convert bytes to string 
+    body = request.data.decode("utf-8")
+    # Convert string to dict 
+    body_dict = ast.literal_eval(body)
+
+    # Convert dict to json
+    body_json = json.dumps(body_dict)
+    loaded_body_json = json.loads(body_json)
+    return loaded_body_json
+
 def print_text(idxs, classids, labels):
     texts = []
     if len(idxs) > 0:

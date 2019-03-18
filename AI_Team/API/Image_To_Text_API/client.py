@@ -10,7 +10,7 @@ test_url = addr + '/v1/api/predict'
 content_type = 'image/jpeg'
 headers = {'content-type': content_type}
 
-fileName = 'laptop.jpg'
+fileName = 'bowl.jpg'
 img = cv2.imread(fileName)
 # encode image as jpeg
 _, img_buffer = cv2.imencode('.jpg', img)
