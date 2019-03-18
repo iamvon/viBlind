@@ -7,7 +7,7 @@ import pymysql
 import base64
 import json
 import ast
-
+import time
 
 app = Flask(__name__)
 
@@ -24,48 +24,49 @@ class Database:
                                           DictCursor)
 
     def insert_user_image(self, name, user_image):
-        with self.connection.cursor() as cursor:
+        with self.connection.cursor() as cursor1:
             query = "INSERT INTO `image_to_text` (`name`, `user_image`) VALUES (%s, %s)"
-            cursor.execute(query, (name, user_image))
+            cursor1.execute(query, (name, user_image))
         self.connection.commit()
-        cursor.close()
+        cursor1.close()
         self.connection.close()
 
     def update_predict_image(self, name, predict_image):
-        with self.connection.cursor() as cursor:
+        with self.connection.cursor() as cursor2:
             query = "UPDATE `image_to_text` SET `predict_image`=%s WHERE `name`=%s"
-            cursor.execute(query, (predict_image, name))
+            cursor2.execute(query, (predict_image, name))
         self.connection.commit()
-        cursor.close()
+        cursor2.close()
         self.connection.close()
     
     def exist_image(self, name):
-        with self.connection.cursor() as cursor:
+        with self.connection.cursor() as cursor3:
             query = "SELECT DISTINCT `name` from `image_to_text` WHERE `name`=%s"
-            res = cursor.execute(query, name)  
+            res = cursor3.execute(query, name)  
             if res == 1:
                 return True
             else:
                 return False 
-        cursor.close()        
+        cursor3.close()        
         self.connection.close()  
 
     def get_predict_image(self, name, width, height):
-        with self.connection.cursor() as cursor:
+        with self.connection.cursor() as cursor4:
             query = "SELECT DISTINCT `predict_image` from `image_to_text` WHERE `name`=%s"
-            cursor.execute(query, name)
-            img_dict = cursor.fetchone()
+            cursor4.execute(query, name)
+            img_dict = cursor4.fetchone()
             img_base64 = img_dict['predict_image']
             
             img_original = base64.b64decode(img_base64)
             # Write to a file
-            fileName = 'user_images/test.jpg'
+            fileName = 'bounding_images/test.jpg'
             with open(fileName, 'wb') as f_output:
                 f_output.write(img_original)
 
             test_img = cv2.imread(fileName, 1)
             test_resize_img = cv2.resize(test_img,(int(width),int(height)))
             cv2.imwrite("predict_images/test_resize.jpg",test_resize_img)
+        cursor4.close()            
         self.connection.close()
 
 # initialize our lists of detected bounding boxes, confidences, and
@@ -156,20 +157,21 @@ def predict():
 
     # TODO
     # Update image database
-    # if db.exist_image(loaded_body['name']):
-    #     print("Exist")
-    #     # Update predicted image in database
-    #     db.update_predict_image(loaded_body['name'], bouding_image_as_string)
-
-    #     return Response(response=response_pickled, status=200, mimetype="application/json")
-    # else:
-    #     db.insert_user_image(loaded_body['name'], loaded_body['image'])
-    #     # Update predicted image in database
-    #     db.update_predict_image(loaded_body['name'], bouding_image_as_string)
-    #     # db.get_predict_image(loaded_body['name'])   
-
-    db.get_predict_image(loaded_body['name'], W, H)   
-
+    if db.exist_image(loaded_body['name']):
+        print("Exist")
+        # Update predicted image in database
+        db.update_predict_image(loaded_body['name'], bouding_image_as_string)
+        db = Database()
+        db.get_predict_image(loaded_body['name'], W, H)   
+        return Response(response=response_pickled, status=200, mimetype="application/json")
+    else:
+        db = Database()
+        db.insert_user_image(loaded_body['name'], loaded_body['image'])
+        # Update predicted image in database
+        db = Database()
+        db.update_predict_image(loaded_body['name'], bouding_image_as_string)
+        db = Database()
+        db.get_predict_image(loaded_body['name'], W, H)   
 
     return Response(response=response_pickled, status=200, mimetype="application/json")
 
