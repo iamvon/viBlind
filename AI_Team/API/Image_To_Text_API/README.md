@@ -29,7 +29,8 @@ __Response:__
 ```js
 {
     "predict": "['dog', 'cat']",
-    "imageSize": "2200x760"
+    "imageSize": "2200x760",
+    "bounding": "http://52.187.125.140:5000/v1/resoures/predict_images/dog-and-cat"  // Recognized image with bounding box
 }
 ```
 
