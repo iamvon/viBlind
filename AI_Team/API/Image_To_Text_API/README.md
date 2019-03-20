@@ -9,7 +9,7 @@ __Base URL:__ http://52.187.125.140:5000
 |     GET     | /v1/resoures/predict_images/<name> |            Return an recognized image with bounding box            | image/jpeg |
 
 ## Examples
-Assume we have an ```dog-and-cat.png``` in local.
+Assume we have an ```dog-and-cat.png``` image in local.
 
 ### 1. /v1/api/predict (POST, GET)
 
