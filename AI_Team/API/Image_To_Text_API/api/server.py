@@ -95,6 +95,7 @@ def predict():
     confidences = []
     classIDs = []   
     centers = []
+    
     db = Database()
     
     r = request
