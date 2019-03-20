@@ -6,7 +6,7 @@ __Base URL:__ http://52.187.125.140:5000
 | HTTP Method |            Resource URL            |                                Notes                               |  Data Type |
 |:-----------:|:----------------------------------:|:------------------------------------------------------------------:|:----------:|
 |  POST, GET  |           /v1/api/predict          | Send an image want to recognize, return objects recognition texts  |    JSON    |
-|     GET     | /v1/resoures/predict_images/__<name>__ |            Return an recognized image with bounding box            | image/jpeg |
+|     GET     | /v1/resoures/predict_images/`<name>` |            Return an recognized image with bounding box            | image/jpeg |
 
 ## Examples
 Assume we have an ```dog-and-cat.png``` image in local.
@@ -34,7 +34,7 @@ __Response:__
 }
 ```
 
-### 2. /v1/resoures/predict_images/__<name>__ (GET)
+### 2. /v1/resoures/predict_images/`<name>` (GET)
 
 _GET:_ http://52.187.125.140:5000/v1/resoures/predict_images/dog-and-cat
 
