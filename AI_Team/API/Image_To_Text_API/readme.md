@@ -1,19 +1,19 @@
-## API Documentations
+# API Documentations
 
-### References
+## References
 
 | HTTP Method |            Resource URL            |                                Notes                               |  Data Type |
 |:-----------:|:----------------------------------:|:------------------------------------------------------------------:|:----------:|
 |  POST, GET  |           /v1/api/predict          | Send an image want to recognize, return objects recognition texts  |    JSON    |
 |     GET     | /v1/resoures/predict_images/<name> |            Return an recognized image with bounding box            | image/jpeg |
 
-### Examples
+## Examples
 Assume we have an ```dog-and-cat.png``` in local.
 
-1. /v1/api/predict (POST, GET)
+### 1. /v1/api/predict (POST, GET)
 
 __Request:__ 
-```
+```json
 Header = {
     "content-type": "image/jpeg"
 }
@@ -25,15 +25,15 @@ Body = {
 ```
 __Response:__
 
-```
+```json
 {
     "predict": "['dog', 'cat']",
     "imageSize": "2200x760"
 }
 ```
 
-2. /v1/resoures/predict_images/<name> (GET)
+### 2. /v1/resoures/predict_images/<name> (GET)
 
-GET: http://52.187.125.140:5000/v1/resoures/predict_images/dog-and-cat
+_GET:_ http://52.187.125.140:5000/v1/resoures/predict_images/dog-and-cat
 
 And you will recieve an recognized image with bounding box.
