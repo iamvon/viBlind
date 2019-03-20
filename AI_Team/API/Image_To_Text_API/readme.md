@@ -1,4 +1,4 @@
-# API Documentations
+# API Documentation
 
 ## References
 
@@ -13,7 +13,7 @@ Assume we have an ```dog-and-cat.png``` in local.
 ### 1. /v1/api/predict (POST, GET)
 
 __Request:__ 
-```json
+```js
 Header = {
     "content-type": "image/jpeg"
 }
@@ -25,7 +25,7 @@ Body = {
 ```
 __Response:__
 
-```json
+```js
 {
     "predict": "['dog', 'cat']",
     "imageSize": "2200x760"
