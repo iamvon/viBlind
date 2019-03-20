@@ -71,13 +71,6 @@ class Database:
         cursor4.close()            
         self.connection.close()
 
-# initialize our lists of detected bounding boxes, confidences, and
-# class IDs, respectively
-boxes = []
-confidences = []
-classIDs = []
-centers = []
-
 # load the COCO class labels our YOLO model was trained on
 labels = open("coco.names").read().strip().split("\n")
 
@@ -96,6 +89,12 @@ ln = [ln[i[0] - 1] for i in net.getUnconnectedOutLayers()]
 # route http posts to this method
 @app.route('/v1/api/predict', methods=['GET', 'POST'])
 def predict():
+    # initialize our lists of detected bounding boxes, confidences, and
+    # class IDs, respectively
+    boxes = []
+    confidences = []
+    classIDs = []   
+    centers = []
     db = Database()
     
     r = request
@@ -139,7 +138,7 @@ def predict():
 
     texts = print_text(idxs, classIDs, labels)
 
-    bouding_image = bouding_box(idxs, image, boxes, colors)
+    bouding_image = bouding_box(idxs, image, boxes, colors, classIDs, confidences)
     _, bouding_image = cv2.imencode('.jpg', bouding_image)
     bouding_image_as_string = base64.b64encode(bouding_image)
 
@@ -169,12 +168,17 @@ def predict():
 
     return Response(response=response_pickled, status=200, mimetype="application/json")
 
-# TODO
 @app.route('/v1/resoures/predict_images/<name>', methods=['GET'])
 def get_image(name):
     filename = 'predict_images/output_resize_%s.jpg' % name
     print(filename)
     return send_file(filename, mimetype='image/gif')
+
+@app.route('/test', methods=['GET'])
+def test():
+    response = {'test': 'say Hi!', 'hello': 'Hello guy'}
+    response_pickled = jsonpickle.encode(response)
+    return Response(response=response_pickled, status=200, mimetype="application/json")
 
 def parse_json_from_request(request):
     # Convert bytes to string 
@@ -194,7 +198,7 @@ def print_text(idxs, classids, labels):
             texts.append(labels[classids[i]])
     return texts
 
-def bouding_box(idxs, image, boxes, colors):
+def bouding_box(idxs, image, boxes, colors, classIDs, confidences):
     H, W = image.shape[:2]
     if len(idxs) > 0:
             # loop over the indexes we are keeping
@@ -217,3 +221,5 @@ def bouding_box(idxs, image, boxes, colors):
 if __name__ == "__main__":
     # start flask app
     app.run()
+
+
