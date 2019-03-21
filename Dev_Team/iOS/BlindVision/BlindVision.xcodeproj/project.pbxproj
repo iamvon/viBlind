@@ -7,17 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D82040102243F5E8003D6750 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D820400F2243F5E7003D6750 /* background.jpg */; };
 		D8E236B52243E52C00FC02CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E236B42243E52C00FC02CC /* AppDelegate.swift */; };
 		D8E236B72243E52C00FC02CC /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E236B62243E52C00FC02CC /* FirstViewController.swift */; };
 		D8E236B92243E52C00FC02CC /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E236B82243E52C00FC02CC /* SecondViewController.swift */; };
 		D8E236BC2243E52C00FC02CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8E236BA2243E52C00FC02CC /* Main.storyboard */; };
 		D8E236BE2243E52D00FC02CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8E236BD2243E52D00FC02CC /* Assets.xcassets */; };
 		D8E236C12243E52D00FC02CC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8E236BF2243E52D00FC02CC /* LaunchScreen.storyboard */; };
-		D8E236CB2243E55C00FC02CC /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D8E236CA2243E55C00FC02CC /* background.jpg */; };
 		D8E236D02243F19300FC02CC /* ZeroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E236CF2243F19200FC02CC /* ZeroViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D820400F2243F5E7003D6750 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
 		D8E236B12243E52C00FC02CC /* BlindVision.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlindVision.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8E236B42243E52C00FC02CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8E236B62243E52C00FC02CC /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -26,7 +27,6 @@
 		D8E236BD2243E52D00FC02CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D8E236C02243E52D00FC02CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D8E236C22243E52D00FC02CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D8E236CA2243E55C00FC02CC /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = background.jpg; path = ../../../../../Downloads/background.jpg; sourceTree = "<group>"; };
 		D8E236CF2243F19200FC02CC /* ZeroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -82,7 +82,7 @@
 		D8E236C92243E55600FC02CC /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				D8E236CA2243E55C00FC02CC /* background.jpg */,
+				D820400F2243F5E7003D6750 /* background.jpg */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -156,7 +156,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8E236C12243E52D00FC02CC /* LaunchScreen.storyboard in Resources */,
-				D8E236CB2243E55C00FC02CC /* background.jpg in Resources */,
+				D82040102243F5E8003D6750 /* background.jpg in Resources */,
 				D8E236BE2243E52D00FC02CC /* Assets.xcassets in Resources */,
 				D8E236BC2243E52C00FC02CC /* Main.storyboard in Resources */,
 			);
@@ -319,6 +319,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 679FU78457;
 				INFOPLIST_FILE = BlindVision/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -336,6 +337,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 679FU78457;
 				INFOPLIST_FILE = BlindVision/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
