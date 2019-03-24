@@ -1,7 +1,7 @@
-## Backend Documentation
+# Backend Documentation
 
 Base URL: http://52.163.230.167:5000
-### Start Server
+## Start Server
 ```bash
 cd ~
 cd Image_To_Text_API/
@@ -11,7 +11,7 @@ export FLASK_APP=server.py
 flask run --host=0.0.0.0
 ```
 
-### References
+## References
 
 | HTTP Method |            Resource URL            |                                Notes                               |  Data Type |
 |:-----------:|:----------------------------------:|:------------------------------------------------------------------:|:----------:|
