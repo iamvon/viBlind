@@ -36,7 +36,7 @@ Body = {
 ```
 __Response:__
 
-```json
+```js
 {
     "predict": "['dog', 'cat']",
     "imageSize": "2200x760",
