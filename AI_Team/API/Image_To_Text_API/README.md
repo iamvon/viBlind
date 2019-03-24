@@ -44,7 +44,7 @@ __Response:__
 }
 ```
 
-__2)__ _/v1/resoures/predict_images/<__name__>_ (GET)
+__2.__ _/v1/resoures/predict_images/<__name__>_ (GET)
 
 GET: http://52.163.230.167:5000/v1/resoures/predict_images/dog-and-cat
 
