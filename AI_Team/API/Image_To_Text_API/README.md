@@ -11,7 +11,7 @@ export FLASK_APP=server.py
 flask run --host=0.0.0.0
 ```
 
-## References
+## API References
 
 | HTTP Method |            Resource URL            |                                Notes                               |  Data Type |
 |:-----------:|:----------------------------------:|:------------------------------------------------------------------:|:----------:|
