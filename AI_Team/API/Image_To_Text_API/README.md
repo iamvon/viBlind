@@ -21,7 +21,7 @@ flask run --host=0.0.0.0
 ### Examples
 Assume we have an ```dog-and-cat.png``` in local.
 
-1. /v1/api/predict (POST, GET)
+__1.__ /v1/api/predict (POST, GET)
 
 __Request:__ 
 ```js
@@ -44,7 +44,7 @@ __Response:__
 }
 ```
 
-2. /v1/resoures/predict_images/<__name__> (GET)
+__2.__ /v1/resoures/predict_images/<__name__> (GET)
 
 GET: http://52.163.230.167:5000/v1/resoures/predict_images/dog-and-cat
 
