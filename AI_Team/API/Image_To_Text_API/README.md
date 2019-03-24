@@ -24,7 +24,7 @@ Assume we have an ```dog-and-cat.png``` in local.
 1. /v1/api/predict (POST, GET)
 
 __Request:__ 
-```
+```js
 Header = {
     "content-type": "application/json"
 }
@@ -36,7 +36,7 @@ Body = {
 ```
 __Response:__
 
-```
+```js
 {
     "predict": "['dog', 'cat']",
     "imageSize": "2200x760",
