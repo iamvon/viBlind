@@ -11,6 +11,9 @@ import time
 
 app = Flask(__name__)
 
+baseURL = 'http://localhost:5000'
+image_to_text_API = '/v1/api/predict'
+bounding_box_API = '/v1/resoures/predict_images/'
 
 class Database:
     def __init__(self):
@@ -59,7 +62,6 @@ class Database:
             
             img_original = base64.b64decode(img_base64)
             # Write to a file
-            print(type(name))
             fileNameBounding = 'bounding_images/output_'+ name[:-4] +'.jpg'
             with open(fileNameBounding, 'wb') as f_output:
                 f_output.write(img_original)
@@ -87,7 +89,7 @@ ln = net.getLayerNames()
 ln = [ln[i[0] - 1] for i in net.getUnconnectedOutLayers()]
 
 # route http posts to this method
-@app.route('/v1/api/predict', methods=['GET', 'POST'])
+@app.route(image_to_text_API, methods=['GET', 'POST'])
 def predict():
     # initialize our lists of detected bounding boxes, confidences, and
     # class IDs, respectively
@@ -98,9 +100,8 @@ def predict():
     
     db = Database()
     
-    r = request
-    
-    loaded_body = parse_json_from_request(r)
+    loaded_body = parse_json_from_request(request)
+
     # Convert base64 image back to binary
     img_original = base64.b64decode(loaded_body['image'])
     print(loaded_body['name'])
@@ -144,7 +145,7 @@ def predict():
     bouding_image_as_string = base64.b64encode(bouding_image)
 
     # build a response dict to send back to client
-    response = {'imageSize': '{}x{}'.format(image.shape[1], image.shape[0]), 'predict': '{}'.format(texts)}
+    response = {"imageSize": "{}x{}".format(image.shape[1], image.shape[0]), "predict": "{}".format(texts), "bounding":"{}".format(baseURL+bounding_box_API+loaded_body['name'][:-4])}
 
     # encode response using jsonpickle
     response_pickled = jsonpickle.encode(response)
@@ -169,7 +170,7 @@ def predict():
 
     return Response(response=response_pickled, status=200, mimetype="application/json")
 
-@app.route('/v1/resoures/predict_images/<name>', methods=['GET'])
+@app.route(bounding_box_API+'<name>', methods=['GET'])
 def get_image(name):
     filename = 'predict_images/output_resize_%s.jpg' % name
     print(filename)
@@ -182,15 +183,10 @@ def test():
     return Response(response=response_pickled, status=200, mimetype="application/json")
 
 def parse_json_from_request(request):
-    # Convert bytes to string 
-    body = request.data.decode("utf-8")
-    # Convert string to dict 
-    body_dict = ast.literal_eval(body)
-
-    # Convert dict to json
-    body_json = json.dumps(body_dict)
-    loaded_body_json = json.loads(body_json)
-    return loaded_body_json
+    body_dict = request.json
+    body_str = json.dumps(body_dict)
+    loaded_body = json.loads(body_str)
+    return loaded_body
 
 def print_text(idxs, classids, labels):
     texts = []

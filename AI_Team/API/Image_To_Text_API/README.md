@@ -1,4 +1,4 @@
-## API Documentations
+## API Documentation
 
 ### References
 
