@@ -20,6 +20,7 @@ public protocol URLConvertible {
 class FirstViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     
     @IBOutlet weak var previewView: UIView!
+    @IBOutlet weak var objectLabel: UILabel!
     
     var captureSession: AVCaptureSession!
     var stillImageOutput: AVCapturePhotoOutput!
@@ -49,26 +50,20 @@ class FirstViewController: UIViewController, AVCapturePhotoCaptureDelegate {
         *** Convert image to base64
         */
         
-        guard let imgData = image?.jpegData(compressionQuality: 0.75) else {
+        guard let imgData = image?.jpegData(compressionQuality: 0.0) else {
             return()
         }
         let imgDataBase64 = imgData.base64EncodedString()
         let imgName = randomString(length: 5)
         
+        callAPI(imgDataBase64: imgDataBase64, imgName: imgName)
+    }
+    
+    func callAPI(imgDataBase64: String, imgName: String) {
         let param = [
             "image": imgDataBase64,
             "name": imgName
         ]
-//        var request = URLRequest(url: urlAPI as! URL)
-//        request.httpMethod = " "
-//        request.httpBody = try? JSONSerialization.data(withJSONObject: param)
-//
-//        print(request)
-//        print(param)
-//        Alamofire.request(request)
-//            .responseJSON { response in
-//                print(response)
-//        }
         
         let APIEndpoint: String = "http://52.163.230.167:5000/v1/api/predict"
         let request: [String: Any] = ["image": imgDataBase64, "name": imgName]
@@ -93,9 +88,13 @@ class FirstViewController: UIViewController, AVCapturePhotoCaptureDelegate {
                     return
                 }
                 print("Predict is: " + predict)
+                DispatchQueue.global(qos: .userInitiated).async {
+                    DispatchQueue.main.async {
+                        self.objectLabel.text = predict
+                    }
+                }
         }
     }
-    
     
     //Assigned name to captured photos, so they can filled in body request
     func randomString(length: Int) -> String {
