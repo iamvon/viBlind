@@ -8,8 +8,14 @@
 
 import UIKit
 import AVFoundation
+import Alamofire
+import SwiftyJSON
 
-let urlString = "http://52.163.230.167:5000/v1/api/predict"
+let urlAPI = NSURL(string: "http://52.163.230.167:5000/v1/api/predict")
+
+public protocol URLConvertible {
+    func asURL() throws -> URL
+}
 
 class FirstViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     
@@ -23,6 +29,7 @@ class FirstViewController: UIViewController, AVCapturePhotoCaptureDelegate {
         let image : String
         let name : String
     }
+    
     //When user tap on camera
     @IBAction func didTakePhoto(_ sender: Any) {
         let settings = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.jpeg])
@@ -45,16 +52,57 @@ class FirstViewController: UIViewController, AVCapturePhotoCaptureDelegate {
         guard let imgData = image?.jpegData(compressionQuality: 0.75) else {
             return()
         }
-//        print(imgData.base64EncodedString())
+        let imgDataBase64 = imgData.base64EncodedString()
+        let imgName = randomString(length: 5)
         
-        guard let url = URL(string: urlString) else {return}
-        URLSession.shared.dataTask(with: url) {
-            (data, response,  error) in
-            if  error != nil {
-                print(error!.localizedDescription)
-            }
+        let param = [
+            "image": imgDataBase64,
+            "name": imgName
+        ]
+//        var request = URLRequest(url: urlAPI as! URL)
+//        request.httpMethod = " "
+//        request.httpBody = try? JSONSerialization.data(withJSONObject: param)
+//
+//        print(request)
+//        print(param)
+//        Alamofire.request(request)
+//            .responseJSON { response in
+//                print(response)
+//        }
+        
+        let APIEndpoint: String = "http://52.163.230.167:5000/v1/api/predict"
+        let request: [String: Any] = ["image": imgDataBase64, "name": imgName]
+        Alamofire.request(APIEndpoint, method: .post, parameters: request,
+                          encoding: JSONEncoding.default)
+            .responseJSON { response in
+                guard response.result.error == nil else {
+                    // got an error in getting the data, need to handle it
+                    print("error calling POST on /todos/1")
+                    print(response.result.error!)
+                    return
+                }
+                // make sure we got some JSON since that's what we expect
+                guard let json = response.result.value as? [String: Any] else {
+                    print("didn't get todo object as JSON from API")
+                    print("Error: \(response.result.error)")
+                    return
+                }
+                // get and print the title
+                guard let predict = json["predict"] as? String else {
+                    print("Could not get todo title from JSON")
+                    return
+                }
+                print("Predict is: " + predict)
         }
     }
+    
+    
+    //Assigned name to captured photos, so they can filled in body request
+    func randomString(length: Int) -> String {
+        let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        return String((0..<length).map{ _ in letters.randomElement()! })
+    }
+    
     
     func setupLivePreview() {
         
@@ -74,7 +122,7 @@ class FirstViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     
     func pushCameraToController() {
         captureSession = AVCaptureSession()
-        captureSession.sessionPreset = .hd1920x1080
+        captureSession.sessionPreset = .hd1280x720
         
         guard let backCamera = AVCaptureDevice.default(for: AVMediaType.video)
             else {
