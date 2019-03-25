@@ -8,14 +8,6 @@
 
 import UIKit
 import AVFoundation
-import Alamofire
-import SwiftyJSON
-
-let urlAPI = NSURL(string: "http://52.163.230.167:5000/v1/api/predict")
-
-public protocol URLConvertible {
-    func asURL() throws -> URL
-}
 
 class FirstViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     
@@ -46,9 +38,7 @@ class FirstViewController: UIViewController, AVCapturePhotoCaptureDelegate {
         // @image: AVCapture --> UI Image
         let image = UIImage(data: imageData)
     
-        /*
-        *** Convert image to base64
-        */
+        //Convert img -> jpeg -> base64
         
         guard let imgData = image?.jpegData(compressionQuality: 0.0) else {
             return()
@@ -56,52 +46,14 @@ class FirstViewController: UIViewController, AVCapturePhotoCaptureDelegate {
         let imgDataBase64 = imgData.base64EncodedString()
         let imgName = randomString(length: 5)
         
-        callAPI(imgDataBase64: imgDataBase64, imgName: imgName)
-    }
-    
-    func callAPI(imgDataBase64: String, imgName: String) {
-        let param = [
-            "image": imgDataBase64,
-            "name": imgName
-        ]
+        let result = callAPIObjectDetect(imgDataBase64: imgDataBase64, imgName: imgName)
         
-        let APIEndpoint: String = "http://52.163.230.167:5000/v1/api/predict"
-        let request: [String: Any] = ["image": imgDataBase64, "name": imgName]
-        Alamofire.request(APIEndpoint, method: .post, parameters: request,
-                          encoding: JSONEncoding.default)
-            .responseJSON { response in
-                guard response.result.error == nil else {
-                    // got an error in getting the data, need to handle it
-                    print("error calling POST on /todos/1")
-                    print(response.result.error!)
-                    return
-                }
-                // make sure we got some JSON since that's what we expect
-                guard let json = response.result.value as? [String: Any] else {
-                    print("didn't get todo object as JSON from API")
-                    print("Error: \(response.result.error)")
-                    return
-                }
-                // get and print the title
-                guard let predict = json["predict"] as? String else {
-                    print("Could not get todo title from JSON")
-                    return
-                }
-                print("Predict is: " + predict)
-                DispatchQueue.global(qos: .userInitiated).async {
-                    DispatchQueue.main.async {
-                        self.objectLabel.text = predict
-                    }
-                }
+        DispatchQueue.global(qos: .userInitiated).async {
+            DispatchQueue.main.async {
+                self.objectLabel.text = result
+            }
         }
     }
-    
-    //Assigned name to captured photos, so they can filled in body request
-    func randomString(length: Int) -> String {
-        let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-        return String((0..<length).map{ _ in letters.randomElement()! })
-    }
-    
     
     func setupLivePreview() {
         
