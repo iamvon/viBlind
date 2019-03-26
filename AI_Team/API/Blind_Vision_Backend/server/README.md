@@ -44,7 +44,7 @@ __Response:__
     "color": "red",
     "x": 840,        // (x, y) is the coordinates of the upper-left corner of the bounding box
     "y": 75,
-    "width": 1236,   //  (width, height) is the boudingbox size
+    "width": 1236,   //  (width, height) is the bouding box size
     "height": 615
   }, {
     "text": "cat",
@@ -52,7 +52,7 @@ __Response:__
     "color": "red",
     "x": 47,        // (x, y) is the coordinates of the upper-left corner of the bounding box
     "y": 54,
-    "width": 1004,  //  (width, height) is the boudingbox size
+    "width": 1004,  //  (width, height) is the bouding box size
     "height": 650 
   }]
 }
