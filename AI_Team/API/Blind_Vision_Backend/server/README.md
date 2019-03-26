@@ -42,17 +42,17 @@ __Response:__
     "text": "dog",
     "confidence": 0.8863365650177002,
     "color": "red",
-    "x": 840,
+    "x": 840,        // (x, y) is the coordinates of the upper-left corner of the bounding box
     "y": 75,
-    "width": 1236,
+    "width": 1236,   //  (width, height) is the boudingbox size
     "height": 615
   }, {
     "text": "cat",
     "confidence": 0.8379455804824829,
     "color": "red",
-    "x": 47,
+    "x": 47,        // (x, y) is the coordinates of the upper-left corner of the bounding box
     "y": 54,
-    "width": 1004,
+    "width": 1004,  //  (width, height) is the boudingbox size
     "height": 650 
   }]
 }
