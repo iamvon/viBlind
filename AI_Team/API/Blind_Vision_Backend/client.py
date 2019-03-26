@@ -3,15 +3,15 @@ import json
 import cv2
 import base64
 
-addr = 'http://52.187.125.140:5000'
+addr = 'http://52.163.230.167:5000'
 test_url = addr + '/v1/api/predict'
 
 # prepare headers for http request
-content_type = 'image/jpeg'
+content_type = 'application/json'
 headers = {'content-type': content_type}
 # Laptop. ca1, 
 folderName = 'user_images/'
-fileName = 'dog-and-cat.png'
+fileName = 'animal.jpg'
 img = cv2.imread(folderName+fileName)
 # encode image as jpeg
 _, img_buffer = cv2.imencode('.jpg', img)
@@ -28,7 +28,7 @@ payload = json.dumps(payload)
 loaded_payload = json.loads(payload)
 # print(loaded_payload['name'])
 
-response = requests.post(test_url, data=payload.encode("utf-8"), headers=headers)
+response = requests.post(test_url,'',json=loaded_payload)
 # decode response
 print (response.json())
 
