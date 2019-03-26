@@ -36,10 +36,14 @@ def predict():
 
     idxs, boxes, confiences, centers, classIDs = yoloModel.detectObjectFromImage(image, net, ln)
 
-    texts = yoloModel.print_text(idxs, classIDs, labels)
+    objectProperty = yoloModel.bouding_box(idxs, image, boxes, colors, labels, classIDs, confiences)
 
     # build a response dict to send back to client
-    response = {"imageSize": "{}x{}".format(image.shape[1], image.shape[0]), "predict": "{}".format(texts)}
+    # response = {'text': '{}'.format(propertyObject['text']), 'confidence':'{}'.format(propertyObject['confidence']), 'x':'{}'.format(propertyObject['x']), 'y':'{}'.format(propertyObject['y']), 'width':'{}'.format(propertyObject['w']), 'height':'{}'.format(propertyObject['h']), 'color':'{}'.format(propertyObject['color'])}
+    response = {
+        'objectProperty':''
+    }
+    response['objectProperty'] = objectProperty
     print(response)
     # encode response using jsonpickle
     response_pickled = jsonpickle.encode(response)

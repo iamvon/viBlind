@@ -15,10 +15,9 @@ image = yoloModel.load_image("tie.jpg")
 
 idxs, boxes, confiences, centers, classIDs = yoloModel.detectObjectFromImage(image, net, ln)
 
-img, text = yoloModel.bouding_box(idxs, image, boxes, colors, labels, classIDs, confiences)
+t = yoloModel.bouding_box(idxs, image, boxes, colors, labels, classIDs, confiences)
 
-print(text)
-
+print(t)
 
 
     
