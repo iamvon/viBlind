@@ -4,10 +4,10 @@ Base URL: http://52.163.230.167:5000
 ## Start Server
 ```bash
 cd ~
-cd Image_To_Text_API/
+cd Blind_Vision_Backend
 source venv/bin/activate
-cd api/
-export FLASK_APP=server.py 
+cd server/
+export FLASK_APP=api.py 
 flask run --host=0.0.0.0
 ```
 
