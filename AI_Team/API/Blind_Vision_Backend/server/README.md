@@ -38,8 +38,23 @@ __Response:__
 
 ```js
 {
-    "predict": "['dog', 'cat']",
-    "imageSize": "2200x760",
+  'objectProperty': [{
+    'color': 'red',
+    'height': 615,
+    'y': 75,
+    'confidence': 0.8863365650177002,
+    'width': 1236,
+    'x': 840,
+    'text': 'dog'
+  }, {
+    'color': 'red',
+    'height': 650,
+    'y': 54,
+    'confidence': 0.8379455804824829,
+    'width': 1004,
+    'x': 47,
+    'text': 'cat'
+  }]
 }
 ```
 
