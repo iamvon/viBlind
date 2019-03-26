@@ -18,11 +18,6 @@ class FirstViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     var stillImageOutput: AVCapturePhotoOutput!
     var videoPreviewLayer: AVCaptureVideoPreviewLayer!
     
-    struct JSONBody: Codable {
-        let image : String
-        let name : String
-    }
-    
     //When user tap on camera
     @IBAction func didTakePhoto(_ sender: Any) {
         let settings = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.jpeg])
@@ -44,16 +39,11 @@ class FirstViewController: UIViewController, AVCapturePhotoCaptureDelegate {
             return()
         }
         let imgDataBase64 = imgData.base64EncodedString()
-        let imgName = randomString(length: 5)
+        let imgName = randomString(length: 5) + ".jpg"
         
-        let result = callAPIObjectDetect(imgDataBase64: imgDataBase64, imgName: imgName)
-        
-        DispatchQueue.global(qos: .userInitiated).async {
-            DispatchQueue.main.async {
-                self.objectLabel.text = result
+        let result = self.callAPIObjectDetect(imgDataBase64: imgDataBase64, imgName: imgName)
+        print(result)
             }
-        }
-    }
     
     func setupLivePreview() {
         
@@ -62,6 +52,9 @@ class FirstViewController: UIViewController, AVCapturePhotoCaptureDelegate {
         videoPreviewLayer.videoGravity = .resizeAspectFill
         videoPreviewLayer.connection?.videoOrientation = .portrait
         previewView.layer.addSublayer(videoPreviewLayer)
+        
+        //Add FloatingView on top
+        addFloatingView(previewView: previewView)
         
         DispatchQueue.global(qos: .userInitiated).async { //[weak self] in
             self.captureSession.startRunning()
@@ -73,7 +66,7 @@ class FirstViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     
     func pushCameraToController() {
         captureSession = AVCaptureSession()
-        captureSession.sessionPreset = .hd1280x720
+        captureSession.sessionPreset = .hd1920x1080
         
         guard let backCamera = AVCaptureDevice.default(for: AVMediaType.video)
             else {
@@ -97,9 +90,7 @@ class FirstViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
         pushCameraToController()
-        
     }
 
     override func viewWillDisappear(_ animated: Bool) {

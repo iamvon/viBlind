@@ -9,6 +9,8 @@
 import Foundation
 import Alamofire
 import SwiftyJSON
+import UIKit
+import Emojimap
 
 let urlAPI = NSURL(string: "http://52.163.230.167:5000/v1/api/predict")
 
@@ -17,7 +19,9 @@ public protocol URLConvertible {
 }
 
 extension FirstViewController {
-    func callAPIObjectDetect(imgDataBase64: String, imgName: String) -> String {
+    
+    //Call Object detech API
+    func callAPIObjectDetect(imgDataBase64: String, imgName: String) {
         let param = [
             "image": imgDataBase64,
             "name": imgName
@@ -26,8 +30,6 @@ extension FirstViewController {
         let APIEndpoint: String = "http://52.163.230.167:5000/v1/api/predict"
         let request: [String: Any] = ["image": imgDataBase64, "name": imgName]
         
-        var result: String
-        result = ""
         Alamofire.request(APIEndpoint, method: .post, parameters: request,
                           encoding: JSONEncoding.default)
             .responseJSON { response in
@@ -48,8 +50,50 @@ extension FirstViewController {
                     print("Could not get todo title from JSON")
                     return
                 }
-                print("Predict is: " + predict)
-                result = predict
+                
+                DispatchQueue.global(qos: .userInitiated).async {
+                    DispatchQueue.main.sync {
+                        self.objectLabel.text = self.cleanPredictData(predict: predict)
+                    }
+                }
+        }
+    }
+    
+    func cleanPredictData(predict: String) -> String {
+        
+        /*
+         **** @result: output string
+         **** @dictionary: insert all object can found, count number appear times
+        */
+        var result: String
+        var dictionary = [String: Int]()
+        
+        var strArray = predict.components(separatedBy: "\'")
+        let trash: Set<String> = [ "[", ", " , "]" , "[]" ]
+        strArray.removeAll(where: { trash.contains($0) })
+        strArray.forEach { (item) in
+            dictionary[item] = dictionary[item] ?? 0 + 1
+        }
+        result=""
+        for (object, number) in dictionary {
+            //Match emoji to add to string
+            let mapping = EmojiMap()
+            for match in mapping.getMatchesFor(object) {
+                result+="\(number) \(object) \(match.emoji), "
+                break
+            }
+        }
+        print(result)
+        
+        //Check and remove last space unexpected
+        let checking = result.suffix(2)
+        if (checking == ", ") {
+            result = String(result.dropLast(2))
+        }
+        
+        //Check if not recognized object
+        if (result == "" || result == "()") {
+            result = "I don't know! 👽"
         }
         return result
     }
@@ -58,5 +102,11 @@ extension FirstViewController {
     func randomString(length: Int) -> String {
         let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
         return String((0..<length).map{ _ in letters.randomElement()! })
+    }
+    
+    func addFloatingView(previewView: UIView) {
+        let widthScreen = previewView.bounds.width
+        let floatingView = BlurredRoundedView(frame: CGRect(x: (widthScreen-320)/2, y: 60, width: 320, height: 80))
+        previewView.addSubview(floatingView)
     }
 }

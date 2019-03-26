@@ -1,5 +1,5 @@
 //
-//  blurred-rounded-view.swift
+//  BlurRoundedView.swift
 //  BlindVision
 //
 //  Created by Hoàng Sơn Tùng on 3/26/19.
@@ -49,7 +49,7 @@ class BlurredRoundedView: UIView {
         super.layoutSubviews()
         let shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: cornerRadius)
         layer.masksToBounds = false
-        layer.shadowColor = UIColor.lightGray.cgColor
+        layer.shadowColor = UIColor.darkGray.cgColor
         layer.shadowOffset = CGSize(width: 0, height: 0)
         layer.shadowOpacity = 0.4
         layer.shadowRadius = 4

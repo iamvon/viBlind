@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		C595DD53AE16C055042F2EFA /* Pods_BlindVision.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6836D0D150060692B247593 /* Pods_BlindVision.framework */; };
 		D82040102243F5E8003D6750 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D820400F2243F5E7003D6750 /* background.jpg */; };
-		D84A734D22495B8500C9239A /* blurred-rounded-view.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84A734C22495B8500C9239A /* blurred-rounded-view.swift */; };
 		D84A734F22495C2700C9239A /* FirstViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84A734E22495C2700C9239A /* FirstViewExtensions.swift */; };
+		D8BFF6E32249673B003D119A /* BlurRoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BFF6E22249673B003D119A /* BlurRoundedView.swift */; };
 		D8E236B52243E52C00FC02CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E236B42243E52C00FC02CC /* AppDelegate.swift */; };
 		D8E236B72243E52C00FC02CC /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E236B62243E52C00FC02CC /* FirstViewController.swift */; };
 		D8E236B92243E52C00FC02CC /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E236B82243E52C00FC02CC /* SecondViewController.swift */; };
@@ -24,8 +24,8 @@
 		141CA8B921C600E0E8DC6298 /* Pods-BlindVision.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlindVision.debug.xcconfig"; path = "Target Support Files/Pods-BlindVision/Pods-BlindVision.debug.xcconfig"; sourceTree = "<group>"; };
 		C6836D0D150060692B247593 /* Pods_BlindVision.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlindVision.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D820400F2243F5E7003D6750 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
-		D84A734C22495B8500C9239A /* blurred-rounded-view.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "blurred-rounded-view.swift"; sourceTree = "<group>"; };
 		D84A734E22495C2700C9239A /* FirstViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewExtensions.swift; sourceTree = "<group>"; };
+		D8BFF6E22249673B003D119A /* BlurRoundedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlurRoundedView.swift; sourceTree = "<group>"; };
 		D8E236B12243E52C00FC02CC /* BlindVision.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlindVision.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8E236B42243E52C00FC02CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8E236B62243E52C00FC02CC /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -67,13 +67,13 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		D84A734B22495B5700C9239A /* Class_Extensions */ = {
+		D84A734B22495B5700C9239A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				D84A734C22495B8500C9239A /* blurred-rounded-view.swift */,
+				D8BFF6E22249673B003D119A /* BlurRoundedView.swift */,
 				D84A734E22495C2700C9239A /* FirstViewExtensions.swift */,
 			);
-			path = Class_Extensions;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		D8E236A82243E52C00FC02CC = {
@@ -110,7 +110,7 @@
 		D8E236C82243E55000FC02CC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				D84A734B22495B5700C9239A /* Class_Extensions */,
+				D84A734B22495B5700C9239A /* Extensions */,
 				D8E236CC2243F0A500FC02CC /* ViewControllers */,
 				D8E236C92243E55600FC02CC /* Images */,
 			);
@@ -215,6 +215,7 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-BlindVision/Pods-BlindVision-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Emojimap/Emojimap.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -222,6 +223,7 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Emojimap.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -259,11 +261,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D84A734F22495C2700C9239A /* FirstViewExtensions.swift in Sources */,
+				D8BFF6E32249673B003D119A /* BlurRoundedView.swift in Sources */,
 				D8E236D02243F19300FC02CC /* ZeroViewController.swift in Sources */,
 				D8E236B92243E52C00FC02CC /* SecondViewController.swift in Sources */,
 				D8E236B52243E52C00FC02CC /* AppDelegate.swift in Sources */,
 				D8E236B72243E52C00FC02CC /* FirstViewController.swift in Sources */,
-				D84A734D22495B8500C9239A /* blurred-rounded-view.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

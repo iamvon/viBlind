@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FFE9A8FC191EE4274B77A8A4E2E9E077"
-               BuildableName = "Pods_BlindVision.framework"
-               BlueprintName = "Pods-BlindVision"
+               BlueprintIdentifier = "D82FE681CB05CC56C9EB152A8F853E8C"
+               BuildableName = "Emojimap.bundle"
+               BlueprintName = "Emojimap-Emojimap"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "FFE9A8FC191EE4274B77A8A4E2E9E077"
-            BuildableName = "Pods_BlindVision.framework"
-            BlueprintName = "Pods-BlindVision"
+            BlueprintIdentifier = "D82FE681CB05CC56C9EB152A8F853E8C"
+            BuildableName = "Emojimap.bundle"
+            BlueprintName = "Emojimap-Emojimap"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
