@@ -40,7 +40,6 @@ __Response:__
 {
     "predict": "['dog', 'cat']",
     "imageSize": "2200x760",
-    "bounding: "http://52.163.230.167:5000/v1/resoures/predict_images/dog-and-cat" 
 }
 ```
 
