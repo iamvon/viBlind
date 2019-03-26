@@ -38,22 +38,22 @@ __Response:__
 
 ```js
 {
-  'objectProperty': [{
-    'color': 'red',
-    'height': 615,
-    'y': 75,
-    'confidence': 0.8863365650177002,
-    'width': 1236,
-    'x': 840,
-    'text': 'dog'
+  "objectProperty": [{
+    "text": "dog",
+    "confidence": 0.8863365650177002,
+    "color": "red",
+    "x": 840,
+    "y": 75,
+    "width": 1236,
+    "height": 615
   }, {
-    'color': 'red',
-    'height': 650,
-    'y': 54,
-    'confidence': 0.8379455804824829,
-    'width': 1004,
-    'x': 47,
-    'text': 'cat'
+    "text": "cat",
+    "confidence": 0.8379455804824829,
+    "color": "red",
+    "x": 47,
+    "y": 54,
+    "width": 1004,
+    "height": 650 
   }]
 }
 ```
