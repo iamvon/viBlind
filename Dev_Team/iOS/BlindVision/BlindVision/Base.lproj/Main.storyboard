@@ -24,10 +24,12 @@
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U4q-mJ-O0X">
-                                <rect key="frame" x="131" y="329" width="152" height="78"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="didTakePhoto:" destination="9pv-A4-QxB" eventType="touchUpInside" id="KBm-af-fN3"/>
                                 </connections>
@@ -44,7 +46,7 @@
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="3Ea-w0-aFF"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Vision" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Vision" image="first" selectedImage="eye.png" id="acW-dT-cKf"/>
                     <connections>
                         <outlet property="objectLabel" destination="GhE-Gx-jhe" id="ca3-6h-zly"/>
                         <outlet property="previewView" destination="OHS-tw-2zK" id="Dqe-Xq-BJn"/>
@@ -176,6 +178,7 @@
     </scenes>
     <resources>
         <image name="background.jpg" width="2285" height="1524"/>
+        <image name="eye.png" width="25" height="25"/>
         <image name="first" width="30" height="30"/>
         <image name="second" width="30" height="30"/>
     </resources>
