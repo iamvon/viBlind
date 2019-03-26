@@ -13,7 +13,7 @@ Assume we have an ```dog-and-cat.png``` in local.
 1. /v1/api/predict (POST, GET)
 
 __Request:__ 
-```
+```js
 Header = {
     "content-type": "image/jpeg"
 }
@@ -22,7 +22,8 @@ Body = {
     "image" : "/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAIBAQEBAQIBAQECAg..."   // Encode image as base64 
     "name" :  "dog-and-cat.png"
 }
-```
+
+```js
 __Response:__
 
 ```
