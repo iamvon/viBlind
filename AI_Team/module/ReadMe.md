@@ -8,22 +8,30 @@ Please see the appropriate for your enviroment of choice:
   * Opencv 3.4.2
   * Download
     * yolov3.cfg
-    * yolov3.weight
+    * yolov3.weights
     * coco.names
     
 ---
 
 ## MODULE
   * yoloModel.py
-    * loadl_abel
+    * loadl_label
     * load_image
     * load_model
     * detectObjectFromImage
+      - Input : Your Image
+      - Output : return  Number of Objects, Confidence of Object, coordinate of Object,  ClassID of Object, Centers of bounding box
     * print_text
+      - Input: Number of Objects, Labels, ClassID of Object
+      - Ouput: name of Objects
     * bounding_box
+      - Input: Number of Objects, Confidence of Object, coordinate of Object,  ClassID of Object, Labels, colors
+      - Output: bouding box in Image and name of Objects with their color
+      
   * color.py
     * get_color
-    
+      - Input: Your image
+      - Output: color of image   
 ---
 
 ## IMPLEMENT
