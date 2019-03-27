@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FFE9A8FC191EE4274B77A8A4E2E9E077"
+               BlueprintIdentifier = "04E4F19FBD02E45EF66CEAC041152A08"
                BuildableName = "Pods_BlindVision.framework"
                BlueprintName = "Pods-BlindVision"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "FFE9A8FC191EE4274B77A8A4E2E9E077"
+            BlueprintIdentifier = "04E4F19FBD02E45EF66CEAC041152A08"
             BuildableName = "Pods_BlindVision.framework"
             BlueprintName = "Pods-BlindVision"
             ReferencedContainer = "container:Pods.xcodeproj">

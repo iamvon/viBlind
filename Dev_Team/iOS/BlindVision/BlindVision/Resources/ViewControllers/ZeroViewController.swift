@@ -12,6 +12,10 @@ class ZeroViewController: UIViewController {
 
     @IBOutlet weak var StartButton: UIButton!
     
+    @IBAction func touchStart(_ sender: Any) {
+        TapticEffectsService.performTapticFeedback(from: TapticEffectsService.TapticEngineFeedbackIdentifier.pop)
+    }
+    
     override func viewDidLoad() {
         
         StartButton.layer.cornerRadius = 0.5 * StartButton.bounds.size.width // add the round corners in proportion to the button size
@@ -23,6 +27,7 @@ class ZeroViewController: UIViewController {
         StartButton.insertSubview(blur, at: 0)
         blur.layer.cornerRadius = 0.1 * StartButton.bounds.size.width
         blur.clipsToBounds = true
+        
         
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.

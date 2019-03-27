@@ -22,6 +22,7 @@ class FirstViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     @IBAction func didTakePhoto(_ sender: Any) {
         let settings = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.jpeg])
         stillImageOutput.capturePhoto(with: settings, delegate: self)
+        TapticEffectsService.performTapticFeedback(from: TapticEffectsService.TapticEngineFeedbackIdentifier.pop)
     }
     
     //Handle the captured photo
@@ -31,9 +32,10 @@ class FirstViewController: UIViewController, AVCapturePhotoCaptureDelegate {
             else { return }
 
         // @image: AVCapture --> UI Image
-        let image = UIImage(data: imageData)
+        var image = UIImage(data: imageData)
     
-        //Convert img -> jpeg -> base64
+        image = resizeImage(image: image!, targetSize: CGSize.init(width: 720, height: 1280))
+        //Convert UIImage -> jpeg -> base64
         
         guard let imgData = image?.jpegData(compressionQuality: 0.0) else {
             return()
@@ -42,8 +44,11 @@ class FirstViewController: UIViewController, AVCapturePhotoCaptureDelegate {
         let imgName = randomString(length: 5) + ".jpg"
         
         let result = self.callAPIObjectDetect(imgDataBase64: imgDataBase64, imgName: imgName)
+        
+        showLoadingHUD()
         print(result)
-            }
+        
+    }
     
     func setupLivePreview() {
         
