@@ -19,6 +19,7 @@ public protocol URLConvertible {
     func asURL() throws -> URL
 }
 
+
 extension FirstViewController {
     
     //Call Object detech API
@@ -31,70 +32,68 @@ extension FirstViewController {
         let APIEndpoint: String = "http://52.163.230.167:5000/v1/api/predict"
         let request: [String: Any] = ["image": imgDataBase64, "name": imgName]
         
+        var items = [String]()
         Alamofire.request(APIEndpoint, method: .post, parameters: request,
                           encoding: JSONEncoding.default)
+            .validate(statusCode: 200..<300)
             .responseJSON { response in
-                guard response.result.error == nil else {
-                    // got an error in getting the data, need to handle it
-                    print("error calling POST")
-                    print(response.result.error!)
-                    return
-                }
-                // make sure we got some JSON
-                guard let json = response.result.value as? [String: Any] else {
-                    print("didn't get object as JSON from API")
-                    print("Error: \(response.result.error)")
-                    return
-                }
-                // get and print the title
-                guard let predict = json["predict"] as? String else {
-                    print("Could not get todo title from JSON")
-                    return
-                }
+                //print("Request: \(String(describing: response.request))")   // original url request
+                //print("Response: \(String(describing: response.response))") // http url response
+                //print("Result: \(response.result)")                         // response serialization result
                 
+                if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
+                    print("Data: \(utf8Text)") // original server data as UTF8 string
+                    do{
+                        // Get json data
+                        let json = try JSON(data: data)
+                        print(json)
+                        // Loop sub-json countries array
+                        for (_, subJson) in json["objectProperty"]{
+                            if let text = subJson["text"].string {
+                                items.append(text)
+                            }
+                        }
+                    }catch{
+                        print("Unexpected error: \(error).")
+                    }
+                    
+                // Convert items to an array of key-value pairs using tuples, where each value is the number 1
+                    let mappedItems = items.map { ($0, 1) }
+                
+                // Create a Dictionary from that items array, asking it to add the 1s together every time it finds a duplicate key
+                    let counts = Dictionary(mappedItems, uniquingKeysWith: +)
+                    
+                // Create resultLabel String
+                    var resultLabel: String; resultLabel=""
+                    if counts.isEmpty {
+                        resultLabel = "I don't know! 👽"
+                    } else {
+                        for (item, numbers) in counts {
+                            var emoji: String; emoji=""
+                            let mapping = EmojiMap()
+                            for match in mapping.getMatchesFor(item) {
+                                    emoji = match.emoji
+                                    break
+                            }
+                            resultLabel += "\(numbers) \(item) \(emoji), "
+                        }
+                    }
+                    
+                    //Check and remove last space unexpected
+                    let checking = resultLabel.suffix(2)
+                    if (checking == ", ") {
+                        resultLabel = String(resultLabel.dropLast(2))
+                    }
+                
+                print(resultLabel)
                 DispatchQueue.global(qos: .userInitiated).async {
                     DispatchQueue.main.sync {
-                        self.objectLabel.text = self.cleanPredictData(predict: predict)
+                       self.objectLabel.text = resultLabel
+                       TapticEffectsService.performTapticFeedback(from: TapticEffectsService.TapticEngineFeedbackIdentifier.tryAgain)
                     }
                 }
-        }
-    }
-    
-    func cleanPredictData(predict: String) -> String {
-        
-        /*
-         **** @result: output string
-         **** @dictionary: insert all object can found, count number appear times
-        */
-        var result: String
-        var dictionary = [String: Int]()
-        
-        var strArray = predict.components(separatedBy: "\'")
-        let trash: Set<String> = [ "[", ", " , "]" , "[]" ]
-        strArray.removeAll(where: { trash.contains($0) })
-        dictionary = strArray.reduce(into: [:]) { counts, word in counts[word, default: 0] += 1 }
-        result=""
-        for (object, number) in dictionary {
-            //Match emoji to add to string
-            let mapping = EmojiMap()
-            for match in mapping.getMatchesFor(object) {
-                result+="\(number) \(object) \(match.emoji), "
-                break
             }
         }
-        print(result)
-        
-        //Check and remove last space unexpected
-        let checking = result.suffix(2)
-        if (checking == ", ") {
-            result = String(result.dropLast(2))
-        }
-        
-        //Check if not recognized object
-        if (result == "" || result == "()") {
-            result = "I don't know! 👽"
-        }
-        return result
     }
     
     //Assigned name to captured photos, so they can filled in body request
@@ -132,7 +131,8 @@ extension FirstViewController {
         return newImage!
     }
     
-    
+    /*-------------------------------------------------------------*/
+    //***** Create a HUD analyzing while waiting for response
     func incrementHUD(_ hud: JGProgressHUD, progress previousProgress: Int) {
         let progress = previousProgress + 2 //+2 means speed of indicator
         hud.progress = Float(progress)/100.0

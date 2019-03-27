@@ -141,6 +141,7 @@
                                     <color key="titleColor" cocoaTouchSystemColor="lightTextColor"/>
                                 </state>
                                 <connections>
+                                    <action selector="touchStart:" destination="RUI-nS-7gc" eventType="touchUpInside" id="h9h-7i-Hen"/>
                                     <segue destination="49e-Tb-3d3" kind="show" id="YFF-xY-Xjz"/>
                                 </connections>
                             </button>
