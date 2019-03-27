@@ -58,6 +58,8 @@ __Response:__
 }
 ```
 
+__Colors:__ Red, Green, Blue, Yellow, Orange, White
+
 __2.__ _/v1/resoures/predict_images/<__name__>_ (GET)
 
 GET: http://52.163.230.167:5000/v1/resoures/predict_images/dog-and-cat

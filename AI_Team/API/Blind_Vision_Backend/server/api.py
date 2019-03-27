@@ -4,7 +4,7 @@ import ml_core.yoloModel as yoloModel
 import jsonpickle
 import numpy as np
 import cv2
-import os
+import os   
 import base64
 import json
 import ast
@@ -23,6 +23,7 @@ net, ln = yoloModel.load_model()
 # route http posts to this method
 @app.route(image_to_text_API, methods=['GET', 'POST'])
 def predict():
+    start = time.time()
     # db = db_helper.Database()
     loaded_body = parse_json_from_request(request)
     
@@ -36,7 +37,7 @@ def predict():
 
     idxs, boxes, confiences, centers, classIDs = yoloModel.detectObjectFromImage(image, net, ln)
 
-    objectProperty = yoloModel.bouding_box(idxs, image, boxes, colors, labels, classIDs, confiences)
+    objectProperty = yoloModel.getObjectProperty(idxs, image, boxes, colors, labels, classIDs, confiences)
 
     # build a response dict to send back to client
     # response = {'text': '{}'.format(propertyObject['text']), 'confidence':'{}'.format(propertyObject['confidence']), 'x':'{}'.format(propertyObject['x']), 'y':'{}'.format(propertyObject['y']), 'width':'{}'.format(propertyObject['w']), 'height':'{}'.format(propertyObject['h']), 'color':'{}'.format(propertyObject['color'])}
@@ -64,7 +65,8 @@ def predict():
     #     # db.update_predict_image(loaded_body['name'], bouding_image_as_string)
     #     # db = db_helper.Database()
     #     # db.get_predict_image(loaded_body['name'], W, H)   
-
+    end = time.time()
+    print('Time:', end - start)
     return Response(response=response_pickled, status=200, mimetype="application/json")
 
 @app.route(bounding_box_API+'<name>', methods=['GET'])

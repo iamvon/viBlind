@@ -11,7 +11,7 @@ content_type = 'application/json'
 headers = {'content-type': content_type}
 # Laptop. ca1, 
 folderName = 'user_images/'
-fileName = 'animal.jpg'
+fileName = 'yellow-car.jpg'
 img = cv2.imread(folderName+fileName)
 # encode image as jpeg
 _, img_buffer = cv2.imencode('.jpg', img)

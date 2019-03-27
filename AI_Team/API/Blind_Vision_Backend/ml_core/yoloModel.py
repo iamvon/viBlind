@@ -2,8 +2,8 @@ import numpy as np
 import time
 import cv2
 import os
-import matplotlib.pyplot as plt
-import color
+import ml_core.color as color
+
 
 def load_label(labelpath):
     # load the COCO class labels our YOLO model was trained on
@@ -112,9 +112,4 @@ def getObjectProperty(idxs, image, boxes, colors, labels, classIDs, confiences):
     # show the output image
         return objectPropertyList
     else: 
-        return "None" 
-
-
-         
-
-            
+        return "null" 

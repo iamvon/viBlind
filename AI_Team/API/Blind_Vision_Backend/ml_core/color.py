@@ -2,10 +2,9 @@ import cv2
 import numpy as np
 
 
-
 def get_color(image):
     if image is None:
-        return "None"
+        return "null"
     else:
         lower = {'red':(0, 30, 50), 'green':(40, 100, 100), 'blue':(97, 100, 117), 'yellow':(20, 100, 100), 'orange':(5, 50, 50), 'white':(0,0,0)} 
         upper = {'red':(10,255,255), 'green':(80,255,255), 'blue':(117,255,255), 'yellow':(30,255,255), 'orange':(15,255,255), 'white':(0,0,255)}
@@ -53,14 +52,5 @@ def get_color(image):
                     #    im = cv2.circle(im_resize, (int(x), int(y)), int(radius), colors[key], 2)
                     #    im = cv2.putText(im,key , (int(x-radius),int(y-radius)), cv2.FONT_HERSHEY_SIMPLEX, 0.4,colors[key],2)
         if (len(radiuss) == 0):
-            return "None"
+            return "null"
         return  colorss[radiuss.index(max(radiuss))]
-
-
-#image = cv2.imread('car1.jpg')
-#c = get_color(image)
-#print( c)
-#cv2.imshow('1', im)
-#cv2.waitKey(0)
-#cv2.destroyAllWindows()
-
