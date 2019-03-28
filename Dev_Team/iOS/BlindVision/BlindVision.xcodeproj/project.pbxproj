@@ -15,6 +15,9 @@
 		D84A734F22495C2700C9239A /* FirstViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84A734E22495C2700C9239A /* FirstViewExtensions.swift */; };
 		D8B45411224A832100228469 /* TapticEffectsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B45410224A832100228469 /* TapticEffectsService.swift */; };
 		D8BFF6E32249673B003D119A /* BlurRoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BFF6E22249673B003D119A /* BlurRoundedView.swift */; };
+		D8D8D423224B7B0F009450C8 /* Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D8D422224B7B0F009450C8 /* Object.swift */; };
+		D8D8D426224BA691009450C8 /* StringProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D8D425224BA691009450C8 /* StringProcess.swift */; };
+		D8D8D428224BACC1009450C8 /* LiveViewProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D8D427224BACC1009450C8 /* LiveViewProcessing.swift */; };
 		D8E236B52243E52C00FC02CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E236B42243E52C00FC02CC /* AppDelegate.swift */; };
 		D8E236B72243E52C00FC02CC /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E236B62243E52C00FC02CC /* FirstViewController.swift */; };
 		D8E236B92243E52C00FC02CC /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E236B82243E52C00FC02CC /* SecondViewController.swift */; };
@@ -34,6 +37,9 @@
 		D84A734E22495C2700C9239A /* FirstViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewExtensions.swift; sourceTree = "<group>"; };
 		D8B45410224A832100228469 /* TapticEffectsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapticEffectsService.swift; sourceTree = "<group>"; };
 		D8BFF6E22249673B003D119A /* BlurRoundedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlurRoundedView.swift; sourceTree = "<group>"; };
+		D8D8D422224B7B0F009450C8 /* Object.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Object.swift; sourceTree = "<group>"; };
+		D8D8D425224BA691009450C8 /* StringProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringProcess.swift; sourceTree = "<group>"; };
+		D8D8D427224BACC1009450C8 /* LiveViewProcessing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveViewProcessing.swift; sourceTree = "<group>"; };
 		D8E236B12243E52C00FC02CC /* BlindVision.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlindVision.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8E236B42243E52C00FC02CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8E236B62243E52C00FC02CC /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +109,16 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		D8D8D421224B7AFC009450C8 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				D8D8D422224B7B0F009450C8 /* Object.swift */,
+				D8D8D425224BA691009450C8 /* StringProcess.swift */,
+				D8D8D427224BACC1009450C8 /* LiveViewProcessing.swift */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
 		D8E236A82243E52C00FC02CC = {
 			isa = PBXGroup;
 			children = (
@@ -137,6 +153,7 @@
 		D8E236C82243E55000FC02CC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D8D8D421224B7AFC009450C8 /* Class */,
 				D84A734B22495B5700C9239A /* Extensions */,
 				D8E236CC2243F0A500FC02CC /* ViewControllers */,
 				D8E236C92243E55600FC02CC /* Images */,
@@ -296,9 +313,12 @@
 				D84A734F22495C2700C9239A /* FirstViewExtensions.swift in Sources */,
 				D8B45411224A832100228469 /* TapticEffectsService.swift in Sources */,
 				D8BFF6E32249673B003D119A /* BlurRoundedView.swift in Sources */,
+				D8D8D426224BA691009450C8 /* StringProcess.swift in Sources */,
 				D8E236D02243F19300FC02CC /* ZeroViewController.swift in Sources */,
+				D8D8D428224BACC1009450C8 /* LiveViewProcessing.swift in Sources */,
 				D8E236B92243E52C00FC02CC /* SecondViewController.swift in Sources */,
 				D8E236B52243E52C00FC02CC /* AppDelegate.swift in Sources */,
+				D8D8D423224B7B0F009450C8 /* Object.swift in Sources */,
 				D8E236B72243E52C00FC02CC /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
