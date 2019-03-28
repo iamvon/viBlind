@@ -35,6 +35,13 @@ class LiveViewProcessing {
         return newImage!
     }
 
+    //Add floating(blur, shadow, transluency) view to the screen
+    func addFloatingView(previewView: UIView, x: Int, y: Int, width: Int, height: Int) {
+        let floatingView = BlurredRoundedView(frame: CGRect(x: x, y: y, width: width, height: height))
+        floatingView.tag = 1
+        previewView.addSubview(floatingView)
+    }
+    
     func addToLiveView(LiveView: UIView, observations: [Object])->UIView {
         for (object) in observations {
             let w = object.width
@@ -48,18 +55,21 @@ class LiveViewProcessing {
             print("X: ", x)
             print("Y: ", y)
             
-            let layer = CAShapeLayer()
-            layer.frame = CGRect(x: (x/80)*46 , y: (y/80)*46, width: (w/80)*46, height: (h/80)*46)
-            layer.borderColor = UIColor.yellow.cgColor
-            layer.borderWidth = 5
-            layer.cornerRadius = 3
-            layer.name = "BoundingBox"
-            LiveView.layer.addSublayer(layer)
+//            let layer = CAShapeLayer()
+//            layer.frame = CGRect(x: (x/80)*46 , y: (y/80)*46, width: (w/80)*46, height: (h/80)*46)
+//            layer.borderColor = UIColor.yellow.cgColor
+//            layer.borderWidth = 5
+//            layer.cornerRadius = 3
+//            layer.name = "BoundingBox"
+//            LiveView.layer.addSublayer(layer)
             
-            let label:UILabel = UILabel(frame: CGRect(x: (x/80)*46, y: (y/80)*46, width: 75, height: 35))
-            label.backgroundColor = UIColor.white
+            
+            addFloatingView(previewView: LiveView, x: (x/80)*46, y: (y/80)*46, width: 75, height: 35)
+            let label:UILabel = UILabel(frame: CGRect(x: (x/80)*46+20, y: (y/80)*46, width: 125, height: 50))
+            //label.backgroundColor = UIColor.white
             label.textColor = UIColor.orange
             label.text = object.name
+            label.tag = 2 //Add tag so I can delete these layers later.
             LiveView.addSubview(label)
             
         }
@@ -70,6 +80,11 @@ class LiveViewProcessing {
         for layer in LiveView.layer.sublayers! {
             if layer.name == "BoundingBox" {
                 layer.removeFromSuperlayer()
+            }
+        }
+        for label in LiveView.subviews {
+            if label.tag==1 || label.tag==2 {
+                label.removeFromSuperview()
             }
         }
         return LiveView

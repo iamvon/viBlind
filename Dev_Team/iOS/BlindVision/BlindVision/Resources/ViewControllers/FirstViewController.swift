@@ -59,7 +59,8 @@ class FirstViewController: UIViewController, AVCapturePhotoCaptureDelegate {
         previewView.layer.addSublayer(videoPreviewLayer)
         
         //Add FloatingView on top
-        addFloatingView(previewView: previewView)
+        let widthScreen = previewView.bounds.width
+        addFloatingView(previewView: previewView, x: Int((widthScreen-320)/2), y: 60, width: 320, height: 80)
         
         DispatchQueue.global(qos: .userInitiated).async { //[weak self] in
             self.captureSession.startRunning()

@@ -89,9 +89,8 @@ extension FirstViewController {
     }
     
     //Add floating(blur, shadow, transluency) view to the screen
-    func addFloatingView(previewView: UIView) {
-        let widthScreen = previewView.bounds.width
-        let floatingView = BlurredRoundedView(frame: CGRect(x: (widthScreen-320)/2, y: 60, width: 320, height: 80))
+    func addFloatingView(previewView: UIView, x: Int, y: Int, width: Int, height: Int) {
+        let floatingView = BlurredRoundedView(frame: CGRect(x: x, y: y, width: width, height: height))
         previewView.addSubview(floatingView)
     }
     

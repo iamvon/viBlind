@@ -17,7 +17,6 @@ class ZeroViewController: UIViewController {
     }
     
     override func viewDidLoad() {
-        
         StartButton.layer.cornerRadius = 0.5 * StartButton.bounds.size.width // add the round corners in proportion to the button size
         
         let blur = UIVisualEffectView(effect: UIBlurEffect(style:
