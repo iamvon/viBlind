@@ -10,7 +10,6 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 import UIKit
-import Emojimap
 import JGProgressHUD
 
 let urlAPI = NSURL(string: "http://52.163.230.167:5000/v1/api/predict")
@@ -23,16 +22,15 @@ public protocol URLConvertible {
 extension FirstViewController {
     
     //Call Object detech API
-    func callAPIObjectDetect(imgDataBase64: String, imgName: String) {
-        let param = [
-            "image": imgDataBase64,
-            "name": imgName
-        ]
-        
+    func callAPIObjectDetect(imgDataBase64: String, imgName: String)-> [Object] {
         let APIEndpoint: String = "http://52.163.230.167:5000/v1/api/predict"
         let request: [String: Any] = ["image": imgDataBase64, "name": imgName]
         
-        var items = [String]()
+        var objects = [Object]()
+        
+        //Create a StringProcess class, so can call function processing object name to result label
+        let processString = StringProcess()
+        
         Alamofire.request(APIEndpoint, method: .post, parameters: request,
                           encoding: JSONEncoding.default)
             .validate(statusCode: 200..<300)
@@ -47,53 +45,41 @@ extension FirstViewController {
                         // Get json data
                         let json = try JSON(data: data)
                         print(json)
-                        // Loop sub-json countries array
+                        
+                        // Parse JSON to array of object
                         for (_, subJson) in json["objectProperty"]{
                             if let text = subJson["text"].string {
-                                items.append(text)
+                                processString.appendItem(x: text)
                             }
+                            let objectTemp = Object.init(
+                                name: subJson["text"].string!,
+                                height: subJson["height"].int!,
+                                width: subJson["width"].int!,
+                                x: subJson["x"].int!,
+                                y: subJson["y"].int!,
+                                confidence: subJson["confidence"].float!)
+                            objects.append(objectTemp)
                         }
                     }catch{
                         print("Unexpected error: \(error).")
                     }
                     
-                // Convert items to an array of key-value pairs using tuples, where each value is the number 1
-                    let mappedItems = items.map { ($0, 1) }
-                
-                // Create a Dictionary from that items array, asking it to add the 1s together every time it finds a duplicate key
-                    let counts = Dictionary(mappedItems, uniquingKeysWith: +)
-                    
-                // Create resultLabel String
-                    var resultLabel: String; resultLabel=""
-                    if counts.isEmpty {
-                        resultLabel = "I don't know! 👽"
-                    } else {
-                        for (item, numbers) in counts {
-                            var emoji: String; emoji=""
-                            let mapping = EmojiMap()
-                            for match in mapping.getMatchesFor(item) {
-                                    emoji = match.emoji
-                                    break
-                            }
-                            resultLabel += "\(numbers) \(item) \(emoji), "
+                    if !(objects.count==0) {
+                        print(objects[0].confidence)
+                    }
+                    DispatchQueue.global(qos: .userInitiated).async {
+                        DispatchQueue.main.sync {
+                            self.objectLabel.text = processString.LabelCountingToResult()
+                            TapticEffectsService.performTapticFeedback(from: TapticEffectsService.TapticEngineFeedbackIdentifier.tryAgain)
+                            let LiveViewProcessor = LiveViewProcessing()
+                            self.previewView = LiveViewProcessor.removeAllBoundingBox(LiveView: self.previewView! )
+                            self.previewView = LiveViewProcessor.addToLiveView(LiveView: self.previewView!, observations: objects)
                         }
                     }
-                    
-                    //Check and remove last space unexpected
-                    let checking = resultLabel.suffix(2)
-                    if (checking == ", ") {
-                        resultLabel = String(resultLabel.dropLast(2))
-                    }
-                
-                print(resultLabel)
-                DispatchQueue.global(qos: .userInitiated).async {
-                    DispatchQueue.main.sync {
-                       self.objectLabel.text = resultLabel
-                       TapticEffectsService.performTapticFeedback(from: TapticEffectsService.TapticEngineFeedbackIdentifier.tryAgain)
-                    }
                 }
-            }
         }
+        print(objects)
+        return objects
     }
     
     //Assigned name to captured photos, so they can filled in body request
@@ -102,33 +88,10 @@ extension FirstViewController {
         return String((0..<length).map{ _ in letters.randomElement()! })
     }
     
-    func addFloatingView(previewView: UIView) {
-        let widthScreen = previewView.bounds.width
-        let floatingView = BlurredRoundedView(frame: CGRect(x: (widthScreen-320)/2, y: 60, width: 320, height: 80))
+    //Add floating(blur, shadow, transluency) view to the screen
+    func addFloatingView(previewView: UIView, x: Int, y: Int, width: Int, height: Int) {
+        let floatingView = BlurredRoundedView(frame: CGRect(x: x, y: y, width: width, height: height))
         previewView.addSubview(floatingView)
-    }
-    
-    func resizeImage(image: UIImage, targetSize: CGSize) -> UIImage {
-        let size = image.size
-        
-        let widthRatio  = targetSize.width  / size.width
-        let heightRatio = targetSize.height / size.height
-        
-        var newSize: CGSize
-        if(widthRatio > heightRatio) {
-            newSize = CGSize(width: size.width * heightRatio, height: size.height * heightRatio)
-        } else {
-            newSize = CGSize(width: size.width * widthRatio, height: size.height *      widthRatio)
-        }
-        
-        let rect = CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height)
-        
-        UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
-        image.draw(in: rect)
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        return newImage!
     }
     
     /*-------------------------------------------------------------*/
@@ -147,8 +110,8 @@ extension FirstViewController {
                 })
                 
                 hud.dismiss(afterDelay: 1.0)
-                }
             }
+        }
         else {
             DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(20)) {
                 self.incrementHUD(hud, progress: progress)
@@ -174,3 +137,4 @@ extension FirstViewController {
         }
     }
 }
+

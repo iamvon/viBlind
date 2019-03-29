@@ -34,7 +34,9 @@ class FirstViewController: UIViewController, AVCapturePhotoCaptureDelegate {
         // @image: AVCapture --> UI Image
         var image = UIImage(data: imageData)
     
-        image = resizeImage(image: image!, targetSize: CGSize.init(width: 720, height: 1280))
+        let LiveViewProcessor = LiveViewProcessing()
+        image = LiveViewProcessor.resizeImage(image: image!, targetSize: CGSize.init(width: 720, height: 1280))
+        
         //Convert UIImage -> jpeg -> base64
         
         guard let imgData = image?.jpegData(compressionQuality: 0.0) else {
@@ -44,10 +46,8 @@ class FirstViewController: UIViewController, AVCapturePhotoCaptureDelegate {
         let imgName = randomString(length: 5) + ".jpg"
         
         let result = self.callAPIObjectDetect(imgDataBase64: imgDataBase64, imgName: imgName)
-        
         showLoadingHUD()
         print(result)
-        
     }
     
     func setupLivePreview() {
@@ -59,7 +59,8 @@ class FirstViewController: UIViewController, AVCapturePhotoCaptureDelegate {
         previewView.layer.addSublayer(videoPreviewLayer)
         
         //Add FloatingView on top
-        addFloatingView(previewView: previewView)
+        let widthScreen = previewView.bounds.width
+        addFloatingView(previewView: previewView, x: Int((widthScreen-320)/2), y: 60, width: 320, height: 80)
         
         DispatchQueue.global(qos: .userInitiated).async { //[weak self] in
             self.captureSession.startRunning()
