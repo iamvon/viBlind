@@ -51,7 +51,7 @@ class BlurredRoundedView: UIView {
         layer.masksToBounds = false
         layer.shadowColor = UIColor.darkGray.cgColor
         layer.shadowOffset = CGSize(width: 0, height: 0)
-        layer.shadowOpacity = 0.4
+        layer.shadowOpacity = 0.9
         layer.shadowRadius = 4
         layer.shadowPath = shadowPath.cgPath
     }
