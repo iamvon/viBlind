@@ -165,8 +165,10 @@ func main() {
 		}
 
 		crawlTimes++
+		fmt.Println("==============================================================")
 		fmt.Println("Crawl times: ", crawlTimes)
 		end := time.Since(start)
 		log.Printf("Time: %s", end)
+		fmt.Println("==============================================================")
 	}
 }
