@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (4.8.1)
+  - Alamofire (4.8.2)
   - Emojimap (0.1.3)
   - JGProgressHUD (2.0.3)
   - SwiftyJSON (4.2.0)
@@ -18,7 +18,7 @@ SPEC REPOS:
     - SwiftyJSON
 
 SPEC CHECKSUMS:
-  Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   Emojimap: 18b89be727fe5e718272026b140622a7d5ed099d
   JGProgressHUD: 12b20a8f4ffe05258f8635c1ab92816e451f904d
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96

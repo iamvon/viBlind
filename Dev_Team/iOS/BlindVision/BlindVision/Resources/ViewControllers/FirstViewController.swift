@@ -18,6 +18,9 @@ class FirstViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     var stillImageOutput: AVCapturePhotoOutput!
     var videoPreviewLayer: AVCaptureVideoPreviewLayer!
     
+    var widthScreenScale = 0.0, heightScreenScale = 0.0
+    let uploadWidth = 720, uploadHeight = 1280
+    
     //When user tap on camera
     @IBAction func didTakePhoto(_ sender: Any) {
         let settings = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.jpeg])
@@ -35,7 +38,7 @@ class FirstViewController: UIViewController, AVCapturePhotoCaptureDelegate {
         var image = UIImage(data: imageData)
     
         let LiveViewProcessor = LiveViewProcessing()
-        image = LiveViewProcessor.resizeImage(image: image!, targetSize: CGSize.init(width: 720, height: 1280))
+        image = LiveViewProcessor.resizeImage(image: image!, targetSize: CGSize.init(width: uploadWidth, height: uploadHeight))
         
         //Convert UIImage -> jpeg -> base64
         
@@ -45,7 +48,7 @@ class FirstViewController: UIViewController, AVCapturePhotoCaptureDelegate {
         let imgDataBase64 = imgData.base64EncodedString()
         let imgName = randomString(length: 5) + ".jpg"
         
-        let result = self.callAPIObjectDetect(imgDataBase64: imgDataBase64, imgName: imgName)
+        let result = self.callAPIObjectDetect(imgDataBase64: imgDataBase64, imgName: imgName, scaleWidth: widthScreenScale, scaleHeight: heightScreenScale)
         showLoadingHUD()
         print(result)
     }
@@ -58,8 +61,15 @@ class FirstViewController: UIViewController, AVCapturePhotoCaptureDelegate {
         videoPreviewLayer.connection?.videoOrientation = .portrait
         previewView.layer.addSublayer(videoPreviewLayer)
         
-        //Add FloatingView on top
+        //Get the scale ratio
         let widthScreen = previewView.bounds.width
+        let heightScreen = previewView.bounds.height
+        widthScreenScale = Double(widthScreen)/Double(uploadWidth)
+        heightScreenScale = Double(heightScreen)/Double(uploadHeight)
+        
+        print(widthScreenScale, heightScreenScale)
+        
+        //Add FloatingView on top
         addFloatingView(previewView: previewView, x: Int((widthScreen-320)/2), y: 60, width: 320, height: 80)
         
         DispatchQueue.global(qos: .userInitiated).async { //[weak self] in

@@ -15,8 +15,10 @@ class Object {
     var x: Int;
     var y: Int;
     var confidence : Float;
+    var color: String = "";
     
-    init(name: String, height: Int, width: Int, x: Int, y: Int, confidence: Float) {
+    init(name: String, height: Int, width: Int, x: Int, y: Int, confidence: Float, color: String) {
+        self.color = color;
         self.name = name;
         self.height = height;
         self.width = width;

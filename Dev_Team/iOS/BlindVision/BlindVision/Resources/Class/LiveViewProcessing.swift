@@ -11,6 +11,8 @@ import UIKit
 import AVFoundation
 
 class LiveViewProcessing {
+
+    var labelFloatWidth = 0, labelFloatHeight = 0
     
     func resizeImage(image: UIImage, targetSize: CGSize) -> UIImage {
         let size = image.size
@@ -42,7 +44,7 @@ class LiveViewProcessing {
         previewView.addSubview(floatingView)
     }
     
-    func addToLiveView(LiveView: UIView, observations: [Object])->UIView {
+    func addToLiveView(LiveView: UIView, observations: [Object], scaleWidth: Double, scaleHeight: Double)->UIView {
         for (object) in observations {
             let w = object.width
             let h = object.height
@@ -55,20 +57,29 @@ class LiveViewProcessing {
             print("X: ", x)
             print("Y: ", y)
             
-//            let layer = CAShapeLayer()
-//            layer.frame = CGRect(x: (x/80)*46 , y: (y/80)*46, width: (w/80)*46, height: (h/80)*46)
+            let layer = CAShapeLayer()
+//            layer.frame = CGRect(x: x, y: y, width: w, height: h)
 //            layer.borderColor = UIColor.yellow.cgColor
 //            layer.borderWidth = 5
 //            layer.cornerRadius = 3
 //            layer.name = "BoundingBox"
 //            LiveView.layer.addSublayer(layer)
             
-            
-            addFloatingView(previewView: LiveView, x: (x/80)*46, y: (y/80)*46, width: 75, height: 35)
-            let label:UILabel = UILabel(frame: CGRect(x: (x/80)*46+20, y: (y/80)*46, width: 125, height: 50))
+            labelFloatWidth = Int(Double(w)*0.8)
+            labelFloatHeight = 50
+            addFloatingView(previewView: LiveView, x: x+(w-labelFloatWidth)/2, y: y+(h-labelFloatHeight)/3, width: labelFloatWidth, height: labelFloatHeight)
+            let label:UILabel = UILabel(frame: CGRect(x: x+(w-labelFloatWidth)/2, y: y+(h-labelFloatHeight)/3, width: labelFloatWidth, height: labelFloatHeight))
             //label.backgroundColor = UIColor.white
-            label.textColor = UIColor.orange
-            label.text = object.name
+            label.textAlignment = .center
+            label.textColor = UIColor.lightGray
+            label.text = "\(object.color) \(object.name)"
+            label.adjustsFontSizeToFitWidth = true
+            label.font = UIFont.systemFont(ofSize: 28)
+            
+            layer.shadowColor = UIColor.darkGray.cgColor
+            layer.shadowOffset = CGSize(width: 0, height: 0)
+            layer.shadowOpacity = 0.9
+            layer.shadowRadius = 4
             label.tag = 2 //Add tag so I can delete these layers later.
             LiveView.addSubview(label)
             

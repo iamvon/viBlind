@@ -10,7 +10,6 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 import UIKit
-import JGProgressHUD
 
 let urlAPI = NSURL(string: "http://52.163.230.167:5000/v1/api/predict")
 
@@ -22,7 +21,7 @@ public protocol URLConvertible {
 extension FirstViewController {
     
     //Call Object detech API
-    func callAPIObjectDetect(imgDataBase64: String, imgName: String)-> [Object] {
+    func callAPIObjectDetect(imgDataBase64: String, imgName: String, scaleWidth: Double, scaleHeight: Double)-> [Object] {
         let APIEndpoint: String = "http://52.163.230.167:5000/v1/api/predict"
         let request: [String: Any] = ["image": imgDataBase64, "name": imgName]
         
@@ -57,7 +56,12 @@ extension FirstViewController {
                                 width: subJson["width"].int!,
                                 x: subJson["x"].int!,
                                 y: subJson["y"].int!,
-                                confidence: subJson["confidence"].float!)
+                                confidence: subJson["confidence"].float!,
+                                color: subJson["color"].string!)
+                            objectTemp.x = Int(Double(objectTemp.x)*scaleWidth)
+                            objectTemp.y = Int(Double(objectTemp.y)*scaleHeight)
+                            objectTemp.width = Int(Double(objectTemp.width)*scaleWidth)
+                            objectTemp.height = Int(Double(objectTemp.height)*scaleHeight)
                             objects.append(objectTemp)
                         }
                     }catch{
@@ -73,7 +77,7 @@ extension FirstViewController {
                             TapticEffectsService.performTapticFeedback(from: TapticEffectsService.TapticEngineFeedbackIdentifier.tryAgain)
                             let LiveViewProcessor = LiveViewProcessing()
                             self.previewView = LiveViewProcessor.removeAllBoundingBox(LiveView: self.previewView! )
-                            self.previewView = LiveViewProcessor.addToLiveView(LiveView: self.previewView!, observations: objects)
+                            self.previewView = LiveViewProcessor.addToLiveView(LiveView: self.previewView!, observations: objects, scaleWidth: scaleWidth, scaleHeight: scaleHeight)
                         }
                     }
                 }
@@ -82,59 +86,5 @@ extension FirstViewController {
         return objects
     }
     
-    //Assigned name to captured photos, so they can filled in body request
-    func randomString(length: Int) -> String {
-        let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-        return String((0..<length).map{ _ in letters.randomElement()! })
-    }
-    
-    //Add floating(blur, shadow, transluency) view to the screen
-    func addFloatingView(previewView: UIView, x: Int, y: Int, width: Int, height: Int) {
-        let floatingView = BlurredRoundedView(frame: CGRect(x: x, y: y, width: width, height: height))
-        previewView.addSubview(floatingView)
-    }
-    
-    /*-------------------------------------------------------------*/
-    //***** Create a HUD analyzing while waiting for response
-    func incrementHUD(_ hud: JGProgressHUD, progress previousProgress: Int) {
-        let progress = previousProgress + 2 //+2 means speed of indicator
-        hud.progress = Float(progress)/100.0
-        hud.detailTextLabel.text = "\(progress)% Complete"
-        
-        if progress == 100 {
-            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500)) {
-                UIView.animate(withDuration: 0.1, animations: {
-                    hud.textLabel.text = "Success"
-                    hud.detailTextLabel.text = nil
-                    hud.indicatorView = JGProgressHUDSuccessIndicatorView()
-                })
-                
-                hud.dismiss(afterDelay: 1.0)
-            }
-        }
-        else {
-            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(20)) {
-                self.incrementHUD(hud, progress: progress)
-            }
-        }
-    }
-    
-    func showLoadingHUD() {
-        let hud = JGProgressHUD(style: .light)
-        hud.vibrancyEnabled = false
-        if arc4random_uniform(2) == 0 {
-            hud.indicatorView = JGProgressHUDPieIndicatorView()
-        }
-        else {
-            hud.indicatorView = JGProgressHUDRingIndicatorView()
-        }
-        hud.detailTextLabel.text = "0% Complete"
-        hud.textLabel.text = "Analyzing"
-        hud.show(in: self.view)
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(400)) {
-            self.incrementHUD(hud, progress: 0)
-        }
-    }
 }
 
