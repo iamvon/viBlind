@@ -1,7 +1,6 @@
 import cv2
 import numpy as np
 
-
 def get_color(image):
     if image is None:
         return "null"

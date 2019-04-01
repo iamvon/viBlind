@@ -59,6 +59,13 @@ def detectObjectFromImage(image, net, ln):
     idxs = cv2.dnn.NMSBoxes(boxes, confidences, 0.5, 0.3)
     return idxs, boxes, confidences, centers, classIDs
 
+def print_text(idxs, classids, labels):
+    texts = []
+    if len(idxs) > 0:
+        for i in idxs.flatten():
+            texts.append(labels[classids[i]])
+    return texts
+
 def bouding_box(idxs, image, boxes, colors, labels, classIDs, confidences):
     H, W = image.shape[:2]
     if len(idxs) > 0:
@@ -76,6 +83,39 @@ def bouding_box(idxs, image, boxes, colors, labels, classIDs, confidences):
     # show the output image
         img = cv2.resize(image, (H, W))
         return img
+
+def getObjectPropertyWithoutColor(idxs, image, boxes, labels, classIDs, confiences):
+    H, W = image.shape[:2]
+    objectPropertyList = []
+    if len(idxs) > 0:
+	    # loop over the indexes we are keeping
+        for i in idxs.flatten():
+		    # extract the bounding box coordinates
+            (x, y) = (boxes[i][0], boxes[i][1])
+            (w, h) = (boxes[i][2], boxes[i][3])
+
+            if x < 0: x = 0
+            if x > W: x = W
+            if y > H: y = H
+            if y < 0: y = 0
+            if x+w > W: w = W - x
+            if y+h > H: y = H-h
+		    # draw a bounding box rectangle and label on the image
+            text = labels[classIDs[i]]
+            confience = confiences[i]
+            im = image[y:y+h, x:x+w]
+            objectPropertyList.append({
+                "text": text,
+                "confidence": confience,
+                "x": x,
+                "y": y,
+                "width": w,
+                "height": h,
+            })
+    # show the output image
+        return objectPropertyList
+    else: 
+        return "null" 
 
 def getObjectProperty(idxs, image, boxes, colors, labels, classIDs, confiences):
     H, W = image.shape[:2]

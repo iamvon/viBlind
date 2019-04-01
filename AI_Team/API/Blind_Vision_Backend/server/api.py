@@ -34,10 +34,19 @@ def predict():
     jpg_as_np = np.frombuffer(img_original, dtype=np.uint8)
     # decode image
     image = cv2.imdecode(jpg_as_np, cv2.IMREAD_COLOR)
-
+    
+    startFunc = time.time()
     idxs, boxes, confiences, centers, classIDs = yoloModel.detectObjectFromImage(image, net, ln)
+    endFunc = time.time()
+    print('TimeFunc:', abs(endFunc - startFunc))
 
-    objectProperty = yoloModel.getObjectProperty(idxs, image, boxes, colors, labels, classIDs, confiences)
+    startFunc = time.time()
+    # objectProperty = yoloModel.getObjectProperty(idxs, image, boxes, colors, labels, classIDs, confiences)
+    # objectProperty = yoloModel.print_text(idxs, classIDs, labels)
+    objectProperty = yoloModel.getObjectPropertyWithoutColor(idxs, image, boxes, labels, classIDs, confiences)
+
+    endFunc = time.time()
+    print('TimeFunc:', abs(endFunc - startFunc))
 
     # build a response dict to send back to client
     # response = {'text': '{}'.format(propertyObject['text']), 'confidence':'{}'.format(propertyObject['confidence']), 'x':'{}'.format(propertyObject['x']), 'y':'{}'.format(propertyObject['y']), 'width':'{}'.format(propertyObject['w']), 'height':'{}'.format(propertyObject['h']), 'color':'{}'.format(propertyObject['color'])}
