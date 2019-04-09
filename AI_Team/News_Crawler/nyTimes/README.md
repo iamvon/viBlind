@@ -32,7 +32,8 @@ cd golang/src/nyTimes
 
 ### Examples
 __1.__ ___GET___ http://52.163.230.167:8080/v1/api/article
-Response:
+
+__Response:__
 ```js
 {
   "categories": [
@@ -46,7 +47,8 @@ Response:
 }
 ```
 __2.__ ___GET___ http://52.163.230.167:8080/v1/api/article/africa-topic
-Response:
+
+__Response:__
 ```js
 {
   "status": 201,
@@ -62,7 +64,8 @@ Response:
 ```
 
 __3.__ ___GET___ http://52.163.230.167:8080/v1/api/article/africa?topic=Lens
-Response:
+
+__Response:__
 ```js
 {
   "articleAmount": 1,
