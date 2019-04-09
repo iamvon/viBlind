@@ -14,7 +14,7 @@ import (
 	"strings"
 	"sync"
 	"encoding/hex"
-	"nyTimes/MiddleEast/db_helper"
+	"nyTimes/db_helper"
 	//"sync"
 	"time"
 )
@@ -146,11 +146,14 @@ func main() {
 			//fmt.Println(hash_url)
 			//fmt.Println(db_helper.ArticleExist(db, hash_url))
 
-			if (len(content.String()) != 0 && !db_helper.ArticleExist(db, hash_url)) {
+			queryStatement := "SELECT id FROM MiddleEast WHERE HEX(hash_url)=?"
+
+			if (len(content.String()) != 0 && !db_helper.ArticleExist(db, queryStatement, hash_url)) {
 				countArticle++
 				stringCountArticle := intToString(countArticle)
 				writeToFile("MiddleEast/article_amount.txt", stringCountArticle)
-				err = db_helper.InsertMiddleEastTable(db, date, topic, title, introduction, content, article.Link, hash_url)
+				queryStatement := "INSERT INTO MiddleEast VALUES (?, ?, ?, ?, ?, ?, ?, UNHEX(?))"
+				err = db_helper.InsertDataToTable(db, queryStatement, date, topic, title, introduction, content, article.Link, hash_url)
 				if err != nil {
 					fmt.Println("INSERT nyTimes_MiddleEast DATABASE: ERROR")
 					fmt.Println(err.Error())
@@ -158,7 +161,7 @@ func main() {
 				} else {
 					fmt.Println("INSERT nyTimes_MiddleEast DATABASE: OK")
 				}
-			} else if (db_helper.ArticleExist(db, hash_url)) {
+			} else if (db_helper.ArticleExist(db, queryStatement, hash_url)) {
 				fmt.Println("INSERT nyTimes_MiddleEast DATABASE: FAIL, Article Existed!")
 			}
 			fmt.Println("nyTimes_MiddleEast Article Amount:", countArticle)

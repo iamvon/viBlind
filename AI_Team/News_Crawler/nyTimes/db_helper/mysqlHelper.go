@@ -14,17 +14,17 @@ func panicError(err error) {
 	}
 }
 
-func InsertEuropeTable(db *sql.DB, date string, topic string, title string, introduction string, content strings.Builder, url string, hash_url string) (error) {
-	stmtInsert, err := db.Prepare("INSERT INTO Europe VALUES (?, ?, ?, ?, ?, ?, ?, UNHEX(?))")
+func InsertDataToTable(db *sql.DB, queryStatement string, date string, topic string, title string, introduction string, content strings.Builder, url string, hash_url string) (error) {
+	stmtInsert, err := db.Prepare(queryStatement)
 	defer stmtInsert.Close()
 	panicError(err)
 	_, err = stmtInsert.Exec("0", date, topic, title, introduction, content.String(), url, hash_url)
 	return err
 }
 
-func ArticleExist(db *sql.DB, uniqueKey string) (bool) {
+func ArticleExist(db *sql.DB, queryStatement string, uniqueKey string) (bool) {
 	var id int
-	rows, err := db.Query("SELECT id FROM Europe WHERE HEX(hash_url)=?", uniqueKey)
+	rows, err := db.Query(queryStatement, uniqueKey)
 	defer rows.Close()
 	panicError(err)
 	for rows.Next() {

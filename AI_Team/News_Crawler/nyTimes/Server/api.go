@@ -194,7 +194,7 @@ func (e *Env) getMiddleEastArticle(c *gin.Context) {
 func main() {
 	//var db sql.DB
 	var err error
-	db, err := sql.Open("mysql", "root:anhtrang@tcp(127.0.0.1:3306)/nyTimes")
+	db, err := sql.Open("mysql", "tuanpmhd:anhtrang@tcp(127.0.0.1:3306)/nyTimes")
 	errors.PanicError(err)
 	env := &Env{db: db}
 

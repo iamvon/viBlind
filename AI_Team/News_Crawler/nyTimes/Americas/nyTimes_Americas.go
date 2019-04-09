@@ -14,7 +14,7 @@ import (
 	"strings"
 	"sync"
 	"encoding/hex"
-	"nyTimes/Americas/db_helper"
+	"nyTimes/db_helper"
 	//"sync"
 	"time"
 )
@@ -126,7 +126,7 @@ func main() {
 
 	start := time.Now()
 
-	db, err := sql.Open("mysql", "root:anhtrang@tcp(127.0.0.1:3306)/nyTimes")
+	db, err := sql.Open("mysql", "tuanpmhd:anhtrang@tcp(127.0.0.1:3306)/nyTimes")
 	panicError(err)
 	defer db.Close()
 
@@ -146,11 +146,14 @@ func main() {
 			//fmt.Println(hash_url)
 			//fmt.Println(db_helper.ArticleExist(db, hash_url))
 
-			if (len(content.String()) != 0 && !db_helper.ArticleExist(db, hash_url)) {
+			queryStatement := "SELECT id FROM Americas WHERE HEX(hash_url)=?"
+
+			if (len(content.String()) != 0 && !db_helper.ArticleExist(db, queryStatement, hash_url)) {
 				countArticle++
 				stringCountArticle := intToString(countArticle)
 				writeToFile("Americas/article_amount.txt", stringCountArticle)
-				err = db_helper.InsertAmericasTable(db, date, topic, title, introduction, content, article.Link, hash_url)
+				queryStatement := "INSERT INTO Americas VALUES (?, ?, ?, ?, ?, ?, ?, UNHEX(?))"
+				err = db_helper.InsertDataToTable(db, queryStatement, date, topic, title, introduction, content, article.Link, hash_url)
 				if err != nil {
 					fmt.Println("INSERT nyTimes_Americas DATABASE: ERROR")
 					fmt.Println(err.Error())
@@ -158,7 +161,7 @@ func main() {
 				} else {
 					fmt.Println("INSERT nyTimes_Americas DATABASE: OK")
 				}
-			} else if (db_helper.ArticleExist(db, hash_url)) {
+			} else if (db_helper.ArticleExist(db, queryStatement, hash_url)) {
 				fmt.Println("INSERT nyTimes_Americas DATABASE: FAIL, Article Existed!")
 			}
 			fmt.Println("Article amount:", countArticle)
