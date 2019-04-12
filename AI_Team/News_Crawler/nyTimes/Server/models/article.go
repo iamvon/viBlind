@@ -2,7 +2,7 @@ package models
 
 type(
 	ArticleModel struct {
-		ID        		uint   	`json:"id"`
+		ID        		int   	`json:"id"`
 		Date 			string  `json:"date"`
 		Topic 			string 	`json:"topic"`
 		Title			string 	`json:"title"`

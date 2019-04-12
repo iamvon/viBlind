@@ -14,11 +14,11 @@ func panicError(err error) {
 	}
 }
 
-func InsertDataToTable(db *sql.DB, queryStatement string, date string, topic string, title string, introduction string, content strings.Builder, url string, hash_url string) (error) {
+func InsertDataToTable(db *sql.DB, queryStatement string, date string, topic string, title string, introduction string, content strings.Builder, url string, hash_url string, rss string, category string) (error) {
 	stmtInsert, err := db.Prepare(queryStatement)
 	defer stmtInsert.Close()
 	panicError(err)
-	_, err = stmtInsert.Exec("0", date, topic, title, introduction, content.String(), url, hash_url)
+	_, err = stmtInsert.Exec("0", date, topic, title, introduction, content.String(), url, hash_url, rss, category)
 	return err
 }
 

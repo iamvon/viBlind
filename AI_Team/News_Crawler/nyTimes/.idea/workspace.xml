@@ -10,32 +10,32 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/MiddleEast/article_amount.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="2" lean-forward="true" selection-start-column="2" selection-end-column="2" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Server/api.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="554">
-              <caret line="131" column="38" lean-forward="true" selection-start-line="131" selection-start-column="38" selection-end-line="131" selection-end-column="38" />
+            <state relative-caret-position="400">
+              <caret line="20" column="42" selection-start-line="20" selection-start-column="42" selection-end-line="20" selection-end-column="42" />
+              <folding>
+                <element signature="e#14#198#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AsiaPacific/nyTimes_AsiaPacific.go">
+        <entry file="file://$PROJECT_DIR$/utils/utils.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="640">
-              <caret line="134" column="70" selection-start-line="134" selection-start-column="70" selection-end-line="134" selection-end-column="70" />
-              <folding>
-                <element signature="e#14#278#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="80">
+              <caret line="4" column="16" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/moveFile.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="20">
+              <caret line="1" column="6" lean-forward="true" selection-start-line="1" selection-end-line="1" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -43,62 +43,66 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Server/db_helper/mysqlHelper.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="17" column="54" selection-start-line="17" selection-start-column="54" selection-end-line="17" selection-end-column="54" />
+            <state relative-caret-position="367">
+              <caret line="110" selection-start-line="110" selection-end-line="110" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Americas/nyTimes_Americas.go">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/runCrawler.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="122" selection-start-line="122" selection-end-line="122" />
+            <state relative-caret-position="60">
+              <caret line="3" selection-start-line="3" selection-end-line="3" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Africa/nyTimes_Africa.go">
+        <entry file="file://$PROJECT_DIR$/run.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="444">
-              <caret line="128" column="34" selection-start-line="128" selection-start-column="34" selection-end-line="128" selection-end-column="34" />
+            <state relative-caret-position="100">
+              <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Africa/article_amount.txt">
+        <entry file="file://$PROJECT_DIR$/buildFile.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="20">
+              <caret line="1" column="14" selection-start-line="1" selection-end-line="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor />
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Rss/rssMapping.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="17" selection-start-line="17" selection-end-line="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Server/db_helper/gormHelper.go">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret column="2" selection-start-column="2" selection-end-column="2" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Americas/article_amount.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="2" selection-start-column="2" selection-end-column="2" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AsiaPacific/article_amount.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="2" selection-start-column="2" selection-end-column="2" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Europe/article_amount.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="2" selection-start-column="2" selection-end-column="2" />
+              <caret column="17" selection-start-column="17" selection-end-column="17" />
+              <folding>
+                <element signature="e#19#116#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -118,9 +122,11 @@
       <find>panicError</find>
       <find>ScanArticleContent</find>
       <find>root:anhtrang</find>
+      <find>feed</find>
+      <find>pr</find>
     </findStrings>
     <replaceStrings>
-      <replace>tuanpmhd:anhtrang</replace>
+      <replace>root:anhtrang</replace>
     </replaceStrings>
   </component>
   <component name="GOROOT" path="/usr/local/go" />
@@ -147,26 +153,30 @@
         <option value="$PROJECT_DIR$/Africa/main.go" />
         <option value="$PROJECT_DIR$/Africa/buid.sh" />
         <option value="$PROJECT_DIR$/build.sh" />
-        <option value="$PROJECT_DIR$/moveFile.sh" />
         <option value="$PROJECT_DIR$/Africa/article_amount.txt" />
         <option value="$PROJECT_DIR$/Americas/article_amount.txt" />
         <option value="$PROJECT_DIR$/AsiaPacific/article_amount.txt" />
         <option value="$PROJECT_DIR$/Europe/article_amount.txt" />
         <option value="$PROJECT_DIR$/MiddleEast/article_amount.txt" />
         <option value="$PROJECT_DIR$/Server/db_helper/mySqlHelper.go" />
-        <option value="$PROJECT_DIR$/Server/models/article.go" />
         <option value="$PROJECT_DIR$/Server/db_helper/gormHelper.go" />
-        <option value="$PROJECT_DIR$/Server/db_helper/mysqlHelper.go" />
-        <option value="$PROJECT_DIR$/runCrawler.sh" />
         <option value="$PROJECT_DIR$/run.sh" />
         <option value="$PROJECT_DIR$/Africa/db_helper/mySqlHelper.go" />
-        <option value="$PROJECT_DIR$/db_helper/mysqlHelper.go" />
         <option value="$PROJECT_DIR$/Africa/nyTimes_Africa.go" />
         <option value="$PROJECT_DIR$/AsiaPacific/nyTimes_AsiaPacific.go" />
         <option value="$PROJECT_DIR$/Europe/nyTimes_Europe.go" />
         <option value="$PROJECT_DIR$/MiddleEast/nyTimes_MiddleEast.go" />
-        <option value="$PROJECT_DIR$/Server/api.go" />
         <option value="$PROJECT_DIR$/Americas/nyTimes_Americas.go" />
+        <option value="$PROJECT_DIR$/db_helper/mysqlHelper.go" />
+        <option value="$PROJECT_DIR$/Rss/rssMapping.go" />
+        <option value="$PROJECT_DIR$/Crawler/rssCrawler.go" />
+        <option value="$PROJECT_DIR$/Server/models/article.go" />
+        <option value="$PROJECT_DIR$/buildFile.sh" />
+        <option value="$PROJECT_DIR$/moveFile.sh" />
+        <option value="$PROJECT_DIR$/utils/utils.go" />
+        <option value="$PROJECT_DIR$/Server/api.go" />
+        <option value="$PROJECT_DIR$/Server/db_helper/mysqlHelper.go" />
+        <option value="$PROJECT_DIR$/runCrawler.sh" />
       </list>
     </option>
   </component>
@@ -181,6 +191,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -188,47 +199,10 @@
               <item name="nyTimes" type="b2602c69:ProjectViewProjectNode" />
               <item name="nyTimes" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="nyTimes" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nyTimes" type="462c0819:PsiDirectoryNode" />
-              <item name="Africa" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="nyTimes" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nyTimes" type="462c0819:PsiDirectoryNode" />
-              <item name="Americas" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="nyTimes" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nyTimes" type="462c0819:PsiDirectoryNode" />
-              <item name="AsiaPacific" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="nyTimes" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nyTimes" type="462c0819:PsiDirectoryNode" />
-              <item name="Europe" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="nyTimes" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nyTimes" type="462c0819:PsiDirectoryNode" />
-              <item name="MiddleEast" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="nyTimes" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nyTimes" type="462c0819:PsiDirectoryNode" />
-              <item name="Server" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="nyTimes" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nyTimes" type="462c0819:PsiDirectoryNode" />
-              <item name="Server" type="462c0819:PsiDirectoryNode" />
-              <item name="db_helper" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -283,8 +257,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14870094" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15533444" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -297,7 +272,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.26144457" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.2543235" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -305,7 +280,7 @@
       <window_info anchor="right" id="Database" order="3" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14870094" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15367606" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -318,7 +293,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.26144457" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.2543235" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -356,16 +331,6 @@
     <entry file="file://$PROJECT_DIR$/build.sh.go" />
     <entry file="file://$PROJECT_DIR$/Africa/buid.sh" />
     <entry file="file://$PROJECT_DIR$/article_amount.txt" />
-    <entry file="file://$PROJECT_DIR$/Server/db_helper/gormHelper.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="17" lean-forward="true" selection-start-column="17" selection-end-column="17" />
-          <folding>
-            <element signature="e#19#116#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/local/go/src/database/sql/sql.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="290">
@@ -380,34 +345,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/run.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/runCrawler.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" column="29" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/moveFile.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="1" column="1" selection-start-line="1" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/buildFile.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="1" column="36" selection-start-line="1" selection-end-line="1" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Server/errors/error_handling.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
@@ -415,148 +352,123 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Africa/db_helper/mySqlHelper.go">
+    <entry file="file://$PROJECT_DIR$/Africa/db_helper/mySqlHelper.go" />
+    <entry file="file://$PROJECT_DIR$/Americas/db_helper/mySqlHelper.go" />
+    <entry file="file://$PROJECT_DIR$/AsiaPacific/db_helper/mySqlHelper.go" />
+    <entry file="file://$PROJECT_DIR$/Europe/db_helper/mySqlHelper.go" />
+    <entry file="file://$PROJECT_DIR$/MiddleEast/db_helper/mySqlHelper.go" />
+    <entry file="file://$PROJECT_DIR$/Africa/article_amount.txt" />
+    <entry file="file://$PROJECT_DIR$/Americas/article_amount.txt" />
+    <entry file="file://$PROJECT_DIR$/AsiaPacific/article_amount.txt" />
+    <entry file="file://$PROJECT_DIR$/Europe/article_amount.txt" />
+    <entry file="file://$PROJECT_DIR$/MiddleEast/article_amount.txt" />
+    <entry file="file://$PROJECT_DIR$/Europe/nyTimes_Europe.go" />
+    <entry file="file://$PROJECT_DIR$/Africa/nyTimes_Africa.go" />
+    <entry file="file://$PROJECT_DIR$/AsiaPacific/nyTimes_AsiaPacific.go" />
+    <entry file="file://$PROJECT_DIR$/MiddleEast/nyTimes_MiddleEast.go" />
+    <entry file="file://$PROJECT_DIR$/Americas/nyTimes_Americas.go" />
+    <entry file="file:///usr/local/go/src/time/time.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="580">
-          <caret line="29" column="21" lean-forward="true" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="21" />
-          <folding>
-            <element signature="e#19#110#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="-470">
+          <caret line="263" column="5" selection-start-line="263" selection-start-column="5" selection-end-line="263" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/db_helper/mysqlHelper.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="4" column="11" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Americas/db_helper/mySqlHelper.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="21" column="14" lean-forward="true" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AsiaPacific/db_helper/mySqlHelper.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="26" column="75" lean-forward="true" selection-start-line="26" selection-start-column="27" selection-end-line="26" selection-end-column="75" />
+        <state relative-caret-position="280">
+          <caret line="20" column="114" selection-start-line="20" selection-start-column="114" selection-end-line="20" selection-end-column="114" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Server/models/article.go">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="3" column="16" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Crawler/rssCrawler.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1947">
+          <caret line="138" column="1" selection-start-line="138" selection-start-column="1" selection-end-line="138" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Server/db_helper/gormHelper.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="17" selection-start-column="17" selection-end-column="17" />
+          <folding>
+            <element signature="e#19#116#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/run.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/utils.go">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
-          <caret line="4" column="9" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Europe/db_helper/mySqlHelper.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="26" column="70" selection-start-line="26" selection-start-column="27" selection-end-line="26" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MiddleEast/db_helper/mySqlHelper.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="26" column="74" lean-forward="true" selection-start-line="26" selection-start-column="27" selection-end-line="26" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MiddleEast/nyTimes_MiddleEast.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-400">
-          <caret line="91" column="41" selection-start-line="91" selection-start-column="41" selection-end-line="91" selection-end-column="41" />
-          <folding>
-            <element signature="e#14#277#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Europe/nyTimes_Europe.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="135" selection-start-line="135" selection-end-line="135" />
-          <folding>
-            <element signature="e#14#273#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AsiaPacific/nyTimes_AsiaPacific.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="640">
-          <caret line="134" column="70" selection-start-line="134" selection-start-column="70" selection-end-line="134" selection-end-column="70" />
-          <folding>
-            <element signature="e#14#278#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/db_helper/mysqlHelper.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="17" column="54" selection-start-line="17" selection-start-column="54" selection-end-line="17" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Americas/nyTimes_Americas.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="122" selection-start-line="122" selection-end-line="122" />
+          <caret line="4" column="16" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Server/api.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="554">
-          <caret line="131" column="38" lean-forward="true" selection-start-line="131" selection-start-column="38" selection-end-line="131" selection-end-column="38" />
+        <state relative-caret-position="400">
+          <caret line="20" column="42" selection-start-line="20" selection-start-column="42" selection-end-line="20" selection-end-column="42" />
+          <folding>
+            <element signature="e#14#198#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Africa/nyTimes_Africa.go">
+    <entry file="file://$PROJECT_DIR$/Rss/rssMapping.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="444">
-          <caret line="128" column="34" selection-start-line="128" selection-start-column="34" selection-end-line="128" selection-end-column="34" />
+        <state relative-caret-position="340">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Africa/article_amount.txt">
+    <entry file="file://$PROJECT_DIR$/Server/db_helper/mysqlHelper.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="2" selection-start-column="2" selection-end-column="2" />
+        <state relative-caret-position="367">
+          <caret line="110" selection-start-line="110" selection-end-line="110" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Americas/article_amount.txt">
+    <entry file="file://$PROJECT_DIR$/buildFile.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="2" selection-start-column="2" selection-end-column="2" />
+        <state relative-caret-position="20">
+          <caret line="1" column="14" selection-start-line="1" selection-end-line="2" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AsiaPacific/article_amount.txt">
+    <entry file="file://$PROJECT_DIR$/moveFile.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="2" selection-start-column="2" selection-end-column="2" />
+        <state relative-caret-position="20">
+          <caret line="1" column="6" lean-forward="true" selection-start-line="1" selection-end-line="1" selection-end-column="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Europe/article_amount.txt">
+    <entry file="file://$PROJECT_DIR$/runCrawler.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="2" selection-start-column="2" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MiddleEast/article_amount.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="2" lean-forward="true" selection-start-column="2" selection-end-column="2" />
+        <state relative-caret-position="60">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>
