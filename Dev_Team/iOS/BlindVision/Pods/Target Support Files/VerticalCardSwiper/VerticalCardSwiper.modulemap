@@ -1,0 +1,6 @@
+framework module VerticalCardSwiper {
+  umbrella header "VerticalCardSwiper-umbrella.h"
+
+  export *
+  module * { export * }
+}

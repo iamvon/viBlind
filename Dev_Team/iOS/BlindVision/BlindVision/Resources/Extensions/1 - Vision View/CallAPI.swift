@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 import UIKit
-
+import AVFoundation
 let urlAPI = NSURL(string: "http://52.163.230.167:5000/v1/api/predict")
 
 public protocol URLConvertible {
@@ -57,7 +57,9 @@ extension FirstViewController {
                                 x: subJson["x"].int!,
                                 y: subJson["y"].int!,
                                 confidence: subJson["confidence"].float!,
-                                color: subJson["color"].string!)
+                                color: "red"
+//                                color: subJson["color"].string!
+                            )
                             objectTemp.x = Int(Double(objectTemp.x)*scaleWidth)
                             objectTemp.y = Int(Double(objectTemp.y)*scaleHeight)
                             objectTemp.width = Int(Double(objectTemp.width)*scaleWidth)
@@ -75,14 +77,18 @@ extension FirstViewController {
                         DispatchQueue.main.sync {
                             self.objectLabel.text = processString.LabelCountingToResult()
                             TapticEffectsService.performTapticFeedback(from: TapticEffectsService.TapticEngineFeedbackIdentifier.tryAgain)
-                            let LiveViewProcessor = LiveViewProcessing()
-                            self.previewView = LiveViewProcessor.removeAllBoundingBox(LiveView: self.previewView! )
-                            self.previewView = LiveViewProcessor.addToLiveView(LiveView: self.previewView!, observations: objects, scaleWidth: scaleWidth, scaleHeight: scaleHeight)
+                            
+                            
+//                            let LiveViewProcessor = LiveViewProcessing()
+//                            self.previewView = LiveViewProcessor.removeAllBoundingBox(LiveView: self.previewView! )
+//                            self.previewView = LiveViewProcessor.addToLiveView(LiveView: self.previewView!, observations: objects, scaleWidth: scaleWidth, scaleHeight: scaleHeight)
+                            let vc = VoiceOver()
+                            vc.sayThis(self.objectLabel.text!)
                         }
                     }
                 }
         }
-        print(objects)
+//        print(objects)
         return objects
     }
     

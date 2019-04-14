@@ -14,6 +14,7 @@ class FirstViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     @IBOutlet weak var previewView: UIView!
     @IBOutlet weak var objectLabel: UILabel!
     
+    
     var captureSession: AVCaptureSession!
     var stillImageOutput: AVCapturePhotoOutput!
     var videoPreviewLayer: AVCaptureVideoPreviewLayer!
@@ -48,8 +49,10 @@ class FirstViewController: UIViewController, AVCapturePhotoCaptureDelegate {
         let imgDataBase64 = imgData.base64EncodedString()
         let imgName = randomString(length: 5) + ".jpg"
         
+        
         let result = self.callAPIObjectDetect(imgDataBase64: imgDataBase64, imgName: imgName, scaleWidth: widthScreenScale, scaleHeight: heightScreenScale)
         showLoadingHUD()
+        
         print(result)
     }
     
