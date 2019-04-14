@@ -104,16 +104,29 @@ func ScanArticleLatest(db *sql.DB, amountArticleLatest int) (*[]models.ArticleMo
 		introduction	string
 		content			string
 		url				string
+		hashUrl			string
 	)
 
-	queryStatement := "SELECT date, topic, title, introduction, content, url FROM articles WHERE id=?"
+	queryStatement := "SELECT date, topic, title, introduction, content, url, HEX(hash_url) FROM articles WHERE id=?"
 	for index, dateLatest  := range articleDateLatest {
 		res, _ := db.Query(queryStatement, dateLatest.articleID)
 		for res.Next() {
-			res.Scan(&date, &topic, &title, &introduction, &content, &url)
-			articleLatest = append(articleLatest, models.ArticleModel{index, date, topic, title, introduction, content, url})
+			_ = res.Scan(&date, &topic, &title, &introduction, &content, &url, &hashUrl)
+			articleLatest = append(articleLatest, models.ArticleModel{index, date, topic, title, introduction, content, url, hashUrl})
 
 		}
 	}
 	return &articleLatest
+}
+
+
+func ScanArticleByHashUrl(db *sql.DB, hashUrl string) (*string) {
+	queryStatement := "SELECT content FROM articles WHERE HEX(hash_url)=?"
+	var articleContent string;
+	res, _ := db.Query(queryStatement, hashUrl)
+	for res.Next() {
+		res.Scan(&articleContent)
+	}
+
+	return &articleContent
 }

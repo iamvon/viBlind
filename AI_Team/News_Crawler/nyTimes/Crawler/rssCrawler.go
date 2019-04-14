@@ -3,19 +3,19 @@ package main
 import (
 	"crypto/sha1"
 	"database/sql"
+	"encoding/hex"
 	"fmt"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/gocolly/colly"
 	"github.com/mmcdole/gofeed"
 	_ "io/ioutil"
 	"log"
+	"nyTimes/Rss"
+	"nyTimes/db_helper"
 	"os"
 	"strconv"
 	"strings"
 	"sync"
-	"encoding/hex"
-	"nyTimes/db_helper"
-	"nyTimes/Rss"
 	//"sync"
 	"time"
 )
@@ -161,7 +161,7 @@ func main() {
 
 	start := time.Now()
 
-	db, err := sql.Open("mysql", "root:anhtrang@tcp(127.0.0.1:3306)/nyTimes")
+	db, err := sql.Open("mysql", "tuanpmhd:anhtrang@tcp(127.0.0.1:3306)/nyTimes")
 	panicError(err)
 	defer db.Close()
 

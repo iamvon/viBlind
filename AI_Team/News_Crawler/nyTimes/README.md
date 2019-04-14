@@ -21,7 +21,7 @@ cd golang/src/nyTimes
 |     GET     |           /v1/api/article?amount=<__int__>          | Return a list of latest article with specific amount |    JSON    |
 
 ### Examples
-__1.__ ___GET___ http://52.163.230.167:8080/v1/api/article?amount=2
+__1.__ ___GET___ http://52.163.230.167:8080/v1/api/article/?amount=2
 
 __Response:__
 ```js
