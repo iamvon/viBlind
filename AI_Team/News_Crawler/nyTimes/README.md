@@ -19,6 +19,7 @@ cd golang/src/nyTimes
 | HTTP Method |            Resource URL            |                                Notes                               |  Data Type |
 |:-----------:|:----------------------------------:|:------------------------------------------------------------------:|:----------:|
 |     GET     |           /v1/api/article?amount=<__int__>          | Return a list of latest article with specific amount |    JSON    |
+|     GET     |           /v1/api/article/content?hash_url=<__string__>          | Return content of an article with specific hash_url |    JSON    |
 
 ### Examples
 __1.__ ___GET___ http://52.163.230.167:8080/v1/api/article?amount=2
