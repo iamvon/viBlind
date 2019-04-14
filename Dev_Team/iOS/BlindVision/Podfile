@@ -8,6 +8,7 @@ target 'BlindVision' do
   pod 'SwiftyJSON', '~> 4.0'
   pod 'Emojimap'
   pod 'JGProgressHUD'
+  pod 'VerticalCardSwiper'
   # Pods for BlindVision
 
 end
