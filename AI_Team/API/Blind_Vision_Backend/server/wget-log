@@ -1,16 +1,0 @@
---2019-04-16 11:06:08--  https://l.facebook.com/l.php?u=https%3A%2F%2Fpjreddie.com%2Fmedia%2Ffiles%2Fyolov3.weights%3Ffbclid%3DIwAR0xsCOeVov_Zl3O5JZbGjjScUzK9K7KeK5oh0jMb9nfwyrUyyevEWsYd2k
-Resolving l.facebook.com (l.facebook.com)... 31.13.95.37
-Connecting to l.facebook.com (l.facebook.com)|31.13.95.37|:443... connected.
-HTTP request sent, awaiting response... 302 Found
-Location: https://www.facebook.com/unsupportedbrowser [following]
---2019-04-16 11:06:09--  https://www.facebook.com/unsupportedbrowser
-Resolving www.facebook.com (www.facebook.com)... 31.13.95.36
-Connecting to www.facebook.com (www.facebook.com)|31.13.95.36|:443... connected.
-HTTP request sent, awaiting response... 200 OK
-Length: unspecified [text/html]
-Saving to: ‘l.php?u=https:%2F%2Fpjreddie.com%2Fmedia%2Ffiles%2Fyolov3.weights?fbclid=IwAR0xsCOeVov_Zl3O5JZbGjjScUzK9K7KeK5oh0jMb9nfwyrUyyevEWsYd2k’
-
-                   l.php?u=https:%2F%     [<=>                                                                     ]       0  --.-KB/s               l.php?u=https:%2F%2Fpjreddie.com%2Fme     [ <=>                                                                    ]  52.63K  --.-KB/s    in 0.1s    
-
-2019-04-16 11:06:09 (364 KB/s) - ‘l.php?u=https:%2F%2Fpjreddie.com%2Fmedia%2Ffiles%2Fyolov3.weights?fbclid=IwAR0xsCOeVov_Zl3O5JZbGjjScUzK9K7KeK5oh0jMb9nfwyrUyyevEWsYd2k’ saved [53896]
-
