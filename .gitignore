@@ -1,6 +1,6 @@
-/.project
 *.weights
-AI_Team/API/Blind_Vision_Backend/env-Backend/*
+Backend/AI/env-Backend/*
 .DS_Store
-AI_Team/API/Blind_Vision_Backend/ml_core/drqa/reader/single.mdl
-AI_Team/News_Crawler/nyTimes/Output/*
+Backend/AI/ml_core/drqa/reader/single.mdl
+Backend/News/nyTimes/Output/*
+
