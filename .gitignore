@@ -1,0 +1,5 @@
+/.project
+*.weights
+AI_Team/API/Blind_Vision_Backend/env-Backend/*
+.DS_Store
+AI_Team/API/Blind_Vision_Backend/ml_core/drqa/reader/single.mdl
