@@ -1,5 +1,5 @@
 *.weights
-Backend/AI/env-Backend/*
+Backend/AI/venv/*
 .DS_Store
 Backend/AI/ml_core/drqa/reader/single.mdl
 Backend/News/nyTimes/Output/*

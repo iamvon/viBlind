@@ -3,7 +3,7 @@ import json
 import cv2
 import base64
 
-addr = 'http://52.163.230.167:5000'
+addr = 'http://0.0.0.0:5000'
 test_url = addr + '/v1/api/predict'
 
 # prepare headers for http request
@@ -32,4 +32,3 @@ response = requests.post(test_url,'',json=loaded_payload)
 # decode response
 print (response.json())
 
-# expected output: {}

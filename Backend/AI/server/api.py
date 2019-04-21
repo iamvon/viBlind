@@ -1,10 +1,4 @@
-import os
-ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
-print(ROOT_DIR)
-######
 from flask import Flask, request, Response, send_file
-import sys
-sys.path.insert(0,"/home/tung/bang/Blind_Vision_Backend/")
 import ml_core.drqa.reader.predictor as predictor
 import ml_core.object_detection.yoloModel as yoloModel
 import jsonpickle
@@ -17,13 +11,13 @@ from gensim.summarization.summarizer import summarize
 import requests
 app = Flask(__name__)
 
-baseURL = 'http://52.163.230.167:5000'
-#baseURL = 'localhost:5000'
+#baseURL = 'http://52.163.230.167:5000'
+baseURL = 'localhost:5000'
 image_to_text_API = '/v1/api/predict'
 bounding_box_API = '/v1/resoures/predict_images/'
 summarizing_API =  '/v1/api/summarize'
 question_answering_API = '/v1/api/answer_question'
-return_article = 'http://52.163.230.167:8080/v1/api/article/content'
+return_article = 'localhost:8080/v1/api/article/content'
 
 # Load YOLO model
 labels, colors = yoloModel.load_label("coco.names")
