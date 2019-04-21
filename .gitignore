@@ -3,3 +3,4 @@
 AI_Team/API/Blind_Vision_Backend/env-Backend/*
 .DS_Store
 AI_Team/API/Blind_Vision_Backend/ml_core/drqa/reader/single.mdl
+AI_Team/News_Crawler/Output/*
