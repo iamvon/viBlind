@@ -4,11 +4,11 @@ Base URL: http://52.163.230.167:5000
 ## Start Server
 ```bash
 cd ~
-cd Blind_Vision_Backend
+cd Vision_For_Blind/Backend/AI/
+virtualenv -p python3 venv
 source venv/bin/activate
-cd server/
-export FLASK_APP=api.py 
-flask run --host=0.0.0.0
+sudo chmod +x run.sh
+./run.sh
 ```
 
 ## API References
@@ -41,7 +41,7 @@ __Response:__
   "objectProperty": [{
     "text": "dog",
     "confidence": 0.8863365650177002,
-    "color": "red",
+    //"color": "red",
     "x": 840,        // (x, y) is the coordinates of the upper-left corner of the bounding box
     "y": 75,
     "width": 1236,   //  (width, height) is the bouding box size
@@ -49,7 +49,7 @@ __Response:__
   }, {
     "text": "cat",
     "confidence": 0.8379455804824829,
-    "color": "red",
+    //"color": "red",
     "x": 47,        // (x, y) is the coordinates of the upper-left corner of the bounding box
     "y": 54,
     "width": 1004,  //  (width, height) is the bouding box size
