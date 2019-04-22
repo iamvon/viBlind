@@ -2,6 +2,13 @@
 
 Base URL: http://52.163.230.167:5000
 ## Start Server
+### 1. With Docker 
+```bash
+cd ~
+cd Vision_For_Blind/Backend/AI/
+docker-compose up
+```
+### 2. Without Docker
 ```bash
 cd ~
 cd Vision_For_Blind/Backend/AI/
