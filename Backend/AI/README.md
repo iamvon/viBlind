@@ -70,3 +70,57 @@ __2.__ _/v1/resoures/predict_images/<__name__>_ (GET)
 GET: http://52.163.230.167:5000/v1/resoures/predict_images/dog-and-cat
 
 And you will recieve an recognized image with bounding box.
+
+__3.__ _/v1/api/summarize_ (POST, GET)
+
+__Request:__ 
+```js
+Header = {
+    "content-type": "application/json"
+}
+
+Body = {
+    "articleContent": "Air pollution is one of the most dangerous forms of pollution..."
+}
+```
+__Response:__
+
+```js
+{
+    'summarized_article': ""    // article's content which has been summarized
+}
+```
+
+__4.__ _/v1/api/answer_question/<__hash_url__>_ (POST, GET)
+
+__Request:__ 
+```js
+Header = {
+    "content-type": "application/json"
+}
+
+Body = {
+    "articleContent": "Air pollution is one of the most dangerous forms of pollution..."
+}
+```
+__Response:__
+
+```js
+{
+    'answers':
+        [
+            {
+                'result':'',    // result with highest capacity
+                'score':''      // score of the result
+            }, 
+            {
+                'result':'',    // second
+                'score':''
+            }, 
+            {
+                'result':'',    // third
+                 'score':''
+             }
+        ]
+}
+```
