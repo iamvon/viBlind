@@ -1,5 +1,4 @@
-pip3 install -r requirements.txt
-
+#!/bin/bash
 cd server/
 
 export FLASK_APP=api.py
