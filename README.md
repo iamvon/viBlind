@@ -61,7 +61,7 @@ There are 2 main features on this app:
 
 ## Running/Build Process
 
-- Backend: https://github.com/iamvon/Vision_For_Blind/tree/master/Backend/AI
+- Backend: https://github.com/iamvon/Vision_For_Blind/tree/master/Backend
 - iOS: https://github.com/iamvon/Vision_For_Blind/tree/master/App/iOS/BlindVision (use Workspace file)
 - Android: https://github.com/iamvon/Vision_For_Blind/tree/master/App/Android/blind_vision 
 
