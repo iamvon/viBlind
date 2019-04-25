@@ -24,7 +24,7 @@
 - [Feedback](#feedback)
 - [Team](#team)
 - [Running/Build Process](#runningbuild-process)
-- [Feedback/Sponsors](#Feedback/Sponsors)
+- [Feedback/Sponsors](#feedbacksponsors)
 
 ## Introduction
 
