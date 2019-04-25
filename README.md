@@ -22,7 +22,7 @@
 - [Introduction](#introduction)
 - [Features](#features)
 - [Feedback](#feedback)
-- [Team](#team)
+- [Development Team](#team)
 - [Running/Build Process](#runningbuild-process)
 - [Feedback/Sponsors](#feedbacksponsors)
 
@@ -51,7 +51,7 @@ There are 2 main features on this app:
 
 
 
-## Team
+## Development Team
 
 - Do Van Bang: [@bangdo172](https://github.com/bangdo172)
 - Pham Minh Tuan: [@iamvon](https://github.com/iamvon)
