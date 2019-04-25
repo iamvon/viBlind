@@ -53,8 +53,8 @@ There are 2 main features on this app:
 
 ## Team
 
-- Do Van Bang: [@bangdo172](https://github.com/megatunger)
-- Pham Minh Tuan: [@iamvon](https://github.com/megatunger)
+- Do Van Bang: [@bangdo172](https://github.com/bangdo172)
+- Pham Minh Tuan: [@iamvon](https://github.com/iamvon)
 - Hoang Son Tung: [@megatunger](https://github.com/megatunger)
 - Nguyen Quang Huy: [@quanghuynguyen1902](https://github.com/quanghuynguyen1902)
 - Tran Quang Huy
