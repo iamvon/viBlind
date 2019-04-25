@@ -23,7 +23,7 @@
 - [Features](#features)
 - [Feedback](#feedback)
 - [Team](#team)
-- [Running/Build Process](#Running/Build Process)
+- [Running/Build Process](#runningbuild-process)
 - [Feedback/Sponsors](#Feedback/Sponsors)
 
 ## Introduction
