@@ -3,8 +3,8 @@ import json
 addr = 'http://localhost:5000'
 test_get = addr + '/v1/api/test_get'
 test_post = addr + '/v1/api/summarize'
-summarizing = "http://52.163.230.167:5000/v1/api/summarize"
-question_answering = "http://52.163.230.167:5000/v1/api/answer_question"
+summarizing = "http://localhost:5000/v1/api/summarize"
+question_answering = "http://localhost:5000/v1/api/answer_question"
 
 # request summarizing API
 payload = {

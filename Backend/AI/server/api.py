@@ -17,7 +17,7 @@ image_to_text_API = '/v1/api/predict'
 bounding_box_API = '/v1/resoures/predict_images/'
 summarizing_API =  '/v1/api/summarize'
 question_answering_API = '/v1/api/answer_question'
-return_article = 'localhost:8080/v1/api/article/content'
+return_article = 'http://localhost:8080/v1/api/article/content'
 
 # Load YOLO model
 labels, colors = yoloModel.load_label("coco.names")
