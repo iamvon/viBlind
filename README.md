@@ -21,7 +21,6 @@
 
 - [Introduction](#introduction)
 - [Features](#features)
-- [Feedback](#feedback)
 - [Development Team](#team)
 - [Running/Build Process](#runningbuild-process)
 - [Feedback/Sponsors](#feedbacksponsors)
