@@ -32,7 +32,10 @@ We believed in a better future for the blinds, where they can have their own app
 
 **Under Reviewing On Store for both iOS and Android.**
 
-![](Demo.gif)
+
+<p align="center">
+  <img src = "https://i.imgur.com/zwOjixA.jpg" width=350>
+</p>
 
 
 ## Features
@@ -44,9 +47,7 @@ There are 2 main features on this app:
 
 
 
-<p align="center">
-  <img src = "https://i.imgur.com/847hqFz.mp4" width=700>
-</p>
+![](Demo.gif)
 
 
 
