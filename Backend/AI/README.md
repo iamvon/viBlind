@@ -92,7 +92,7 @@ __Response:__
 }
 ```
 
-__4.__ _/v1/api/answer_question/<__hash_url__>_ (POST, GET)
+__4.__ _/v1/api/answer_question/_ (POST, GET)
 
 __Request:__ 
 ```js
@@ -101,7 +101,8 @@ Header = {
 }
 
 Body = {
-    "articleContent": "Air pollution is one of the most dangerous forms of pollution..."
+    "question": "What did the sailor do?",
+    "hash_url": "C5B5300ECED62665ACC6CA32A0BEB39AE942B861"
 }
 ```
 __Response:__
