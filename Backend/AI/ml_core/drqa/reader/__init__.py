@@ -12,7 +12,7 @@ from .. import DATA_DIR
 
 DEFAULTS = {
     'tokenizer': CoreNLPTokenizer,
-    'model': '/home/tung/bang/Blind_Vision_Backend/ml_core/drqa/reader/single.mdl'
+    'model': os.path.join(DATA_DIR, 'reader/single.mdl'),
 }
 
 
