@@ -1,8 +1,13 @@
 package db_helper
 
 import (
+	"bytes"
 	"database/sql"
+	"encoding/json"
 	_ "github.com/go-sql-driver/mysql"
+	_ "github.com/dghubble/sling"
+	"io/ioutil"
+	"net/http"
 	"nyTimes/Server/errors"
 	"nyTimes/Server/models"
 	"time"
@@ -10,7 +15,6 @@ import (
 
 const (
 	layoutISO = "2006-01-02"
-	layoutUS  = "January 2, 2006"
 )
 
 type dateTime struct {
@@ -20,6 +24,11 @@ type dateTime struct {
 	month 		int
 	day   		int
 }
+
+const baseURL = "http://localhost:5000"
+
+var apiSummarize = "/v1/api/summarize"
+
 //func GetAllTableName(db *sql.DB) (*[]string) {
 //	tables := []string{}
 //	var table string
@@ -112,7 +121,24 @@ func ScanArticleLatest(db *sql.DB, amountArticleLatest int) (*[]models.ArticleMo
 		res, _ := db.Query(queryStatement, dateLatest.articleID)
 		for res.Next() {
 			_ = res.Scan(&date, &topic, &title, &introduction, &content, &url, &hashUrl)
-			articleLatest = append(articleLatest, models.ArticleModel{index, date, topic, title, introduction, content, url, hashUrl})
+
+			summarizeRequest, err := json.Marshal(map[string]string{
+				"articleContent": content,
+			})
+			errors.PanicError(err)
+
+			summarizeResponse, err := http.Post(baseURL+apiSummarize, "application/json", bytes.NewBuffer(summarizeRequest))
+			errors.PanicError(err)
+
+			defer summarizeResponse.Body.Close()
+
+			summarizeBody, err := ioutil.ReadAll(summarizeResponse.Body)
+			errors.PanicError(err)
+
+			s := string(summarizeBody)
+			summarize := s[1 : len(s)-1]
+
+			articleLatest = append(articleLatest, models.ArticleModel{index, date, topic, title, introduction, content,summarize , url, hashUrl})
 
 		}
 	}

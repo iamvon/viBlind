@@ -92,7 +92,7 @@ def summarizing():
     print(article)
     print("___________")
     summarized_response = summarize(article)
-    response = {'summarized_article':summarized_response, 'status': '200'}
+    response = summarized_response
     response_pickled = jsonpickle.encode(response)
     print(response_pickled)
     print("___________")

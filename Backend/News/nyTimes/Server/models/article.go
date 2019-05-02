@@ -8,6 +8,7 @@ type(
 		Title        string `json:"title"`
 		Introduction string `json:"introduction"`
 		Content      string `json:"content"`
+		Summarize 	 string `json:"summarize"`
 		Url          string `json:"url"`
 		HashUrl      string `json:"hash_url"`
 	}
