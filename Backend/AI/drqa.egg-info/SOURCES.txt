@@ -1,9 +1,0 @@
-README.md
-drqa.egg-info/PKG-INFO
-drqa.egg-info/SOURCES.txt
-drqa.egg-info/dependency_links.txt
-drqa.egg-info/top_level.txt
-server/__init__.py
-server/api.py
-server/db_helper.py
-server/test.py
