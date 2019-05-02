@@ -92,7 +92,7 @@ __Response:__
 }
 ```
 
-__4.__ _/v1/api/answer_question/_ (POST, GET)
+__4.__ _/v1/api/answer_question_ (POST, GET)
 
 __Request:__ 
 ```js
