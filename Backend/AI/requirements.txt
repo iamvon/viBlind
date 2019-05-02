@@ -15,6 +15,7 @@ regex
 tqdm
 prettytable
 scipy
+spacy
 nltk
 elasticsearch
 pexpect==4.2.1

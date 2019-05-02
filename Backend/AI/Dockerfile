@@ -25,3 +25,4 @@ RUN chmod +x run.sh
 
 ENTRYPOINT ["./run.sh"]
 
+# python3 -m spacy download en

@@ -1,6 +1,6 @@
 from flask import Flask, request, Response, send_file
-import ml_core.drqa.reader.predictor as predictor
-import ml_core.drqa.test_module.test as testing
+import ml_core.question_answering.drqa.reader.predictor as predictor
+# import ml_core.drqa.test_module.test as testing
 import ml_core.object_detection.yoloModel as yoloModel
 import jsonpickle
 import numpy as np
@@ -81,7 +81,7 @@ def get_image(name):
 @app.route('/test', methods=['GET'])
 def test():
     response = {'test': 'say Hi!', 'hello': 'Hello guy'}
-    testing.test()
+    # testing.test()
     response_pickled = jsonpickle.encode(response)
     return Response(response=response_pickled, status=200, mimetype="application/json")
 

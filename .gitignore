@@ -2,5 +2,5 @@
 Backend/AI/venv/*
 Backend/AI/server/yolov3.weights
 .DS_Store
-Backend/AI/ml_core/data/reader/single.mdl
+Backend/AI/ml_core/question_answering/data/reader/single.mdl
 Backend/News/nyTimes/Output/*
