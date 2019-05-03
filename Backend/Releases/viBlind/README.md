@@ -6,7 +6,7 @@
 3. Clone this repository.
 
 ## Installing viBlind Backend
-### Start _AI service_
+### Start AI service
 Open your terminal at __viBlind__ repository you have cloned:
 ```bash
 cd Backend/Releases/viBlind/AI
@@ -15,7 +15,7 @@ chmod +x run.sh
 ```
 You can find __AI service__ documentation [here](https://github.com/iamvon/viBlind/blob/master/Backend/AI/README.md)
 
-### Start _News service_
+### Start News service
 Open your terminal at __viBlind__ repository you have cloned:
 ```bash
 cd Backend/Releases/viBlind/News/nyTimes  
