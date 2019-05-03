@@ -4,13 +4,13 @@ Base URL: http://52.163.230.167:8080
 ## Start Crawler Service
 ```bash
 cd ~
-cd Vision_For_Blind/Backend/News/nyTimes
+cd viBlind/Backend/News/nyTimes
 ./runCrawler.sh
 ```
 ## Start API Service
 ```bash
 cd ~
-cd Vision_For_Blind/Backend/News/nyTimes
+cd viBlind/Backend/News/nyTimes
 ./runAPI.sh
 ```
 
