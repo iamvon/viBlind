@@ -24,12 +24,12 @@ cd Backend/Releases/viBlind/News/nyTimes
 chmod +x runAPI.sh
 chmod +x runCrawler.sh
 ```
-&lt;p&gt;__1.__ Run __Crawler Service__&lt;/p&gt;
-```bash
-./runCrawler.sh
-```
->> __2.__ Run __News API Service__
-```bash
-./runAPI.sh
-``` 
+  __1.__ Run __Crawler Service__
+  ```bash
+  ./runCrawler.sh
+  ```
+  __2.__ Run __News API Service__
+  ```bash
+  ./runAPI.sh
+  ``` 
 ___NOTE:___ You can find __News service__ documentation [here](https://github.com/iamvon/viBlind/blob/master/Backend/News/nyTimes/README.md).
