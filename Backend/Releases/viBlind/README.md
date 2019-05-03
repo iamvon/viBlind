@@ -24,11 +24,11 @@ cd Backend/Releases/viBlind/News/nyTimes
 chmod +x runAPI.sh
 chmod +x runCrawler.sh
 ```
-> __1.__ Run __Crawler Service__
+>> __1.__ Run __Crawler Service__
 ```bash
 ./runCrawler.sh
 ```
-> __2.__ Run __News API Service__
+>> __2.__ Run __News API Service__
 ```bash
 ./runAPI.sh
 ``` 
