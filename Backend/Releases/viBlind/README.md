@@ -20,7 +20,7 @@ ___NOTE:___ You can find __AI service__ documentation [here](https://github.com/
 ### Start News service
 Open your terminal at __viBlind__ repository you have cloned:
 ```bash
-cd Backend/Releases/viBlind/News/nyTimes  
+cd Backend/Releases/viBlind/News  
 chmod +x runAPI.sh
 chmod +x runCrawler.sh
 ```
