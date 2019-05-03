@@ -6,28 +6,28 @@
 3. Clone this repository.
 
 ## Installing viBlind Backend
-### Start AI service
+### Start _AI service_
 Open your terminal at __viBlind__ repository you have cloned:
 ```bash
 cd Backend/Releases/viBlind/AI
 chmod +x run.sh
 ./run.sh
 ```
-You can find AI service documentation [here](https://github.com/iamvon/viBlind/blob/master/Backend/AI/README.md)
+You can find __AI service__ documentation [here](https://github.com/iamvon/viBlind/blob/master/Backend/AI/README.md)
 
-### Start News service
+### Start _News service_
 Open your terminal at __viBlind__ repository you have cloned:
 ```bash
 cd Backend/Releases/viBlind/News/nyTimes  
 chmod +x runAPI.sh
 chmod +x runCrawler.sh
 ```
-1. Run Crawler Service
+__1.__ Run __Crawler Service__
 ```bash
 ./runCrawler.sh
 ```
-2. Run News API Service
+__2.__ Run __News API Service__
 ```bash
 ./runAPI.sh
 ``` 
-You can find News service documentation [here](https://github.com/iamvon/viBlind/blob/master/Backend/News/nyTimes/README.md)
+You can find __News service__ documentation [here](https://github.com/iamvon/viBlind/blob/master/Backend/News/nyTimes/README.md)
