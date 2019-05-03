@@ -8,16 +8,16 @@ __2.__ Install [Docker](https://docs.docker.com/install/).
 __3.__ Clone this repository.
 
 ## Installing viBlind Backend
-### Start AI service
+### Start AI Service
 Open your terminal at __viBlind__ repository you have cloned:
 ```bash
 cd Backend/Releases/viBlind/AI
 chmod +x run.sh
 ./run.sh
 ```
-___NOTE:___ You can find __AI service__ documentation [here](https://github.com/iamvon/viBlind/blob/master/Backend/AI/README.md).
+___NOTE:___ You can find __AI Service__ documentation [here](https://github.com/iamvon/viBlind/blob/master/Backend/AI/README.md).
 
-### Start News service
+### Start News Service
 Open your terminal at __viBlind__ repository you have cloned:
 ```bash
 cd Backend/Releases/viBlind/News  
@@ -32,4 +32,4 @@ chmod +x runCrawler.sh
   ```bash
   ./runAPI.sh
   ``` 
-___NOTE:___ You can find __News service__ documentation [here](https://github.com/iamvon/viBlind/blob/master/Backend/News/nyTimes/README.md).
+___NOTE:___ You can find __News Service__ documentation [here](https://github.com/iamvon/viBlind/blob/master/Backend/News/nyTimes/README.md).
