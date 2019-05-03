@@ -5,7 +5,7 @@ import (
 	"database/sql"
 	"encoding/json"
 	_ "github.com/go-sql-driver/mysql"
-	_ "github.com/dghubble/sling"
+	_"github.com/dghubble/sling"
 	"io/ioutil"
 	"net/http"
 	"nyTimes/Server/errors"
@@ -25,7 +25,7 @@ type dateTime struct {
 	day   		int
 }
 
-const baseURL = "http://localhost:5000"
+const baseURL = "http://52.163.230.167:5000"
 
 var apiSummarize = "/v1/api/summarize"
 
@@ -113,6 +113,7 @@ func ScanArticleLatest(db *sql.DB, amountArticleLatest int) (*[]models.ArticleMo
 		introduction	string
 		content			string
 		url				string
+		summarize		string
 		hashUrl			string
 	)
 
@@ -136,7 +137,7 @@ func ScanArticleLatest(db *sql.DB, amountArticleLatest int) (*[]models.ArticleMo
 			errors.PanicError(err)
 
 			s := string(summarizeBody)
-			summarize := s[1 : len(s)-1]
+			summarize = s[1 : len(s)-1]
 
 			articleLatest = append(articleLatest, models.ArticleModel{index, date, topic, title, introduction, content,summarize , url, hashUrl})
 

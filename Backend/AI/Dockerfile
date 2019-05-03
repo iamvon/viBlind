@@ -21,8 +21,9 @@ RUN /bin/bash -c "source venv/bin/activate"
 
 RUN pip3 install -r requirements.txt
 
+RUN python3 -m spacy download en
+
 RUN chmod +x run.sh 
 
 ENTRYPOINT ["./run.sh"]
 
-# python3 -m spacy download en

@@ -1,0 +1,22 @@
+.git
+Dockerfile
+.DS_Store
+.gitignore
+.dockerignore
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+
+# Distribution / packaging
+.Python
+build/
+var/
+wheels/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*$py.class
