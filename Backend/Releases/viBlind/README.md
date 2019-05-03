@@ -2,7 +2,9 @@
 
 ## Prerequirements
 __1.__ Install [phpMyAdmin](https://www.phpmyadmin.net/) and [MySQL](https://www.mysql.com/) 
+
 __2.__ Install [Docker](https://docs.docker.com/install/)
+
 __3.__ Clone this repository.
 
 ## Installing viBlind Backend
