@@ -13,7 +13,7 @@ cd Backend/Releases/viBlind/AI
 chmod +x run.sh
 ./run.sh
 ```
-You can find AI service documentation (here)[https://github.com/iamvon/viBlind/blob/master/Backend/AI/README.md]
+You can find AI service documentation [here](https://github.com/iamvon/viBlind/blob/master/Backend/AI/README.md)
 
 ### Start News service
 Open your terminal at __viBlind__ repository you have cloned:
@@ -30,4 +30,4 @@ chmod +x runCrawler.sh
 ```bash
 ./runAPI.sh
 ``` 
-You can find News service documentation (here)[https://github.com/iamvon/viBlind/blob/master/Backend/News/nyTimes/README.md]
+You can find News service documentation [here](https://github.com/iamvon/viBlind/blob/master/Backend/News/nyTimes/README.md)
