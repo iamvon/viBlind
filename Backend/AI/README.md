@@ -24,7 +24,8 @@ sudo chmod +x run.sh
 | HTTP Method |            Resource URL            |                                Notes                               |  Data Type |
 |:-----------:|:----------------------------------:|:------------------------------------------------------------------:|:----------:|
 |  POST, GET  |           /v1/api/predict          | Send an image want to recognize, return objects recognition texts  |    JSON    |
-|     GET     | /v1/resoures/predict_images/<__name__> |            Return an recognized image with bounding box            | image/jpeg |
+|POST, GET|/v1/api/summarize|Send an article want to summarize, return a summarized article |TEXT|
+|POST, GET|/v1/api/answer_question|Send a question related to a specific article, return answers for that question|JSON
 
 ### Examples
 Assume we have an ```dog-and-cat.png``` in local.
@@ -65,14 +66,7 @@ __Response:__
   }]
 }
 ```
-
-__2.__ _/v1/resoures/predict_images/<__name__>_ (GET)
-
-GET: http://52.163.230.167:5000/v1/resoures/predict_images/dog-and-cat
-
-And you will recieve an recognized image with bounding box.
-
-__3.__ _/v1/api/summarize_ (POST, GET)
+__2.__ _/v1/api/summarize_ (POST, GET)
 
 __Request:__ 
 ```js
@@ -92,7 +86,7 @@ __Response:__
 }   // article's content which has been summarized
 ```
 
-__4.__ _/v1/api/answer_question_ (POST, GET)
+__3.__ _/v1/api/answer_question_ (POST, GET)
 
 __Request:__ 
 ```js
