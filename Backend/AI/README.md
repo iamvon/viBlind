@@ -88,7 +88,7 @@ __Response:__
 
 ```js
 {
-    'summarized_article': ""    // article's content which has been summarized
+    ""    // article's content which has been summarized
 }
 ```
 
