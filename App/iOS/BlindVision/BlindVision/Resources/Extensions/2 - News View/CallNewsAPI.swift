@@ -51,8 +51,8 @@ extension SecondViewController {
                             let introduction = item["introduction"].stringValue
                             let content = item["content"].stringValue
                             let url = item["url"].stringValue
-                            
-                            let articleTemp = Article(id: Int(id)!, date: date, topic: topic, title: title, introduction: introduction, content: content, url: url)
+                            let hash = item["hash_url"].stringValue
+                            let articleTemp = Article(id: Int(id)!, date: date, topic: topic, title: title, introduction: introduction, content: content, url: url, hash: hash)
                             Articles.append(articleTemp)
                         }
                     }catch{

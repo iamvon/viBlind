@@ -16,8 +16,9 @@ class Article {
     let date: String!
     let introduction: String!
     let url: String!
+    let hash: String!
     
-    init(id: Int, date: String, topic: String, title: String, introduction: String, content: String, url: String) {
+    init(id: Int, date: String, topic: String, title: String, introduction: String, content: String, url: String, hash: String) {
         self.topic = topic
         self.title = title
         self.content = content
@@ -25,5 +26,6 @@ class Article {
         self.date = date
         self.introduction = introduction
         self.url = url
+        self.hash = hash
     }
 }

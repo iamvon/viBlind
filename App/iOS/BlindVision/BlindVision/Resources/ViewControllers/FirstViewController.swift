@@ -8,8 +8,9 @@
 
 import UIKit
 import AVFoundation
-
+import SpeechInjector
 class FirstViewController: UIViewController, AVCapturePhotoCaptureDelegate {
+    var injector : SpeechInjector!
     
     @IBOutlet weak var previewView: UIView!
     @IBOutlet weak var objectLabel: UILabel!
@@ -115,6 +116,23 @@ class FirstViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.captureSession.stopRunning()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let connector1 = SpeechConnector(words: "capture", "catcher") {
+            let settings = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.jpeg])
+            self.stillImageOutput.capturePhoto(with: settings, delegate: self)
+            TapticEffectsService.performTapticFeedback(from: TapticEffectsService.TapticEngineFeedbackIdentifier.pop)
+        }
+        
+        let connector2 = SpeechConnector(words: "news", "nieuws", "niet", "do you", "do use") {
+            self.tabBarController?.selectedIndex = 1
+        }
+        injector = SpeechInjector(connectors: [connector1, connector2], vc: self, language: "en-US")
+        
+        injector.placeSpeechButton(buttonColor: UIColor(red:0.34, green:0.67, blue:0.18, alpha:1.0), yOffset: 65)
     }
 }
 

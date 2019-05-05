@@ -13,7 +13,7 @@ class TabbarViewController: UITabBarController {
         let vc = VoiceOver()
         switch(self.selectedIndex) {
         case 0:
-            vc.sayThis("News. Swipe up for articles. Tap to hear it.")
+            vc.sayThis("News. Swipe up for articles. Tap to hear it. Tap top of device to ask about article")
         case 1:
             vc.sayThis("Vision. Tap to detection.")
         default:
