@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "05A84EE7DD2BAFA0BB956381D22EFBBF"
+               BlueprintIdentifier = "CC0939FC11A74FEB04509A22EF2D6DDD"
                BuildableName = "VerticalCardSwiper.framework"
                BlueprintName = "VerticalCardSwiper"
                ReferencedContainer = "container:Pods.xcodeproj">

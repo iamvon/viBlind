@@ -56,7 +56,7 @@
             </objects>
             <point key="canvasLocation" x="749.27536231884062" y="-320.38043478260875"/>
         </scene>
-        <!--News-->
+        <!--Second View Controller-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
                 <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="BlindVision" customModuleProvider="target" sceneMemberID="viewController">
@@ -80,11 +80,23 @@
                                     <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="79"/>
                                 </textAttributes>
                                 <items>
-                                    <navigationItem id="4OS-ky-eWa"/>
+                                    <navigationItem id="4OS-ky-eWa">
+                                        <nil key="title"/>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="olx-FN-Vpx">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="138"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="wAe-EU-xOe" kind="show" identifier="showVoiceRecognize" id="Jb2-j1-Yqq"/>
+                                </connections>
+                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="7bJ-oo-dBX">
-                                <rect key="frame" x="20" y="42.000000000000007" width="167.66666666666666" height="87.666666666666686"/>
+                                <rect key="frame" x="20" y="50.000000000000007" width="167.66666666666666" height="87.666666666666686"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friday, 13th April 2019" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PTx-zY-gwg">
                                         <rect key="frame" x="0.0" y="0.0" width="167.66666666666666" height="22"/>
@@ -103,12 +115,12 @@
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="7bJ-oo-dBX" firstAttribute="top" secondItem="JCG-Xm-21u" secondAttribute="topMargin" constant="22" id="3xU-C9-KTC"/>
-                            <constraint firstItem="7bJ-oo-dBX" firstAttribute="leading" secondItem="eC8-i0-7PH" secondAttribute="leading" constant="20" id="U54-Ni-hFL"/>
+                            <constraint firstItem="7bJ-oo-dBX" firstAttribute="top" secondItem="JCG-Xm-21u" secondAttribute="top" constant="50" id="5q8-Ic-Y6K"/>
+                            <constraint firstItem="7bJ-oo-dBX" firstAttribute="leading" secondItem="eC8-i0-7PH" secondAttribute="leading" constant="20" id="VKo-Yw-VxK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="eC8-i0-7PH"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="News" image="newspaper.png" selectedImage="newspaper.png" id="DZV-7r-d6v"/>
+                    <navigationItem key="navigationItem" id="b8e-iE-XZG"/>
                     <connections>
                         <outlet property="Date_lb" destination="PTx-zY-gwg" id="BTB-sn-9HZ"/>
                         <outlet property="cardSwiper" destination="Qd8-7R-7Ti" id="6bU-3s-f0c"/>
@@ -116,7 +128,59 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="749.27536231884062" y="359.51086956521743"/>
+            <point key="canvasLocation" x="1656.521739130435" y="359.51086956521743"/>
+        </scene>
+        <!--Voice Recognize Controller-->
+        <scene sceneID="OWE-We-m1X">
+            <objects>
+                <viewController id="wAe-EU-xOe" customClass="VoiceRecognizeController" customModule="BlindVision" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="W0Y-T1-dWy" customClass="Voice">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="What can I help you with?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VBQ-1Z-2pc">
+                                <rect key="frame" x="92" y="101" width="230" height="78"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vwY-em-rlh">
+                                <rect key="frame" x="20" y="210" width="374" height="150"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aD8-Hr-Bva">
+                                <rect key="frame" x="0.0" y="458" width="414" height="278"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="38"/>
+                                <state key="normal" title="Start Recording"/>
+                                <connections>
+                                    <action selector="microphoneTapped:" destination="wAe-EU-xOe" eventType="touchUpInside" id="GAK-w3-SWY"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="Sm5-jt-bMV">
+                                <rect key="frame" x="20" y="368" width="374" height="150"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="oxb-54-IZW"/>
+                    </view>
+                    <connections>
+                        <outlet property="answerView" destination="Sm5-jt-bMV" id="99j-CC-NQ8"/>
+                        <outlet property="microphoneButton" destination="aD8-Hr-Bva" id="Ls1-ll-66Z"/>
+                        <outlet property="textView" destination="vwY-em-rlh" id="eJm-3g-btU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Mh-tA-irp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2369.5652173913045" y="359.51086956521743"/>
         </scene>
         <!--Zero View Controller-->
         <scene sceneID="5pv-bV-vZZ">
@@ -189,12 +253,31 @@
                     </tabBar>
                     <connections>
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
-                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
+                        <segue destination="rpa-Zm-71R" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
+        </scene>
+        <!--News-->
+        <scene sceneID="U9Q-YT-yc0">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rpa-Zm-71R" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="News" image="newspaper.png" selectedImage="newspaper.png" id="DZV-7r-d6v"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="eaG-6i-IuV">
+                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="rootViewController" id="FDw-u2-Xi9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3xy-7C-dsJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="749.27536231884062" y="359.51086956521743"/>
         </scene>
     </scenes>
     <resources>

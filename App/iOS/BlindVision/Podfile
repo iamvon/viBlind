@@ -9,6 +9,7 @@ target 'BlindVision' do
   pod 'Emojimap'
   pod 'JGProgressHUD'
   pod 'VerticalCardSwiper'
+  pod 'SpeechInjector'
   # Pods for BlindVision
 
 end

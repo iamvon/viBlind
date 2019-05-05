@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		C595DD53AE16C055042F2EFA /* Pods_BlindVision.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6836D0D150060692B247593 /* Pods_BlindVision.framework */; };
+		D8095B25227B8C3700527BB6 /* voiceRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8095B24227B8C3700527BB6 /* voiceRecognizer.swift */; };
+		D8095B27227B8E4700527BB6 /* VoiceRecognizeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8095B26227B8E4700527BB6 /* VoiceRecognizeController.swift */; };
+		D8095BB6227DFA3300527BB6 /* curioso-photography-1521810-unsplash.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D8095BB5227DFA3300527BB6 /* curioso-photography-1521810-unsplash.jpg */; };
+		D8095BB9227DFE4E00527BB6 /* CallAnswerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8095BB8227DFE4E00527BB6 /* CallAnswerAPI.swift */; };
+		D8095BBB227E00A400527BB6 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8095BBA227E00A400527BB6 /* Answer.swift */; };
 		D816347922607C890073B01F /* leftMarginLargeTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D816347822607C890073B01F /* leftMarginLargeTitle.swift */; };
 		D816347B2260801B0073B01F /* thomas-charters-296769-unsplash.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D816347A2260801B0073B01F /* thomas-charters-296769-unsplash.jpg */; };
 		D82040102243F5E8003D6750 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D820400F2243F5E7003D6750 /* background.jpg */; };
@@ -46,6 +51,11 @@
 /* Begin PBXFileReference section */
 		141CA8B921C600E0E8DC6298 /* Pods-BlindVision.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlindVision.debug.xcconfig"; path = "Target Support Files/Pods-BlindVision/Pods-BlindVision.debug.xcconfig"; sourceTree = "<group>"; };
 		C6836D0D150060692B247593 /* Pods_BlindVision.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlindVision.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8095B24227B8C3700527BB6 /* voiceRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = voiceRecognizer.swift; sourceTree = "<group>"; };
+		D8095B26227B8E4700527BB6 /* VoiceRecognizeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceRecognizeController.swift; sourceTree = "<group>"; };
+		D8095BB5227DFA3300527BB6 /* curioso-photography-1521810-unsplash.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "curioso-photography-1521810-unsplash.jpg"; sourceTree = "<group>"; };
+		D8095BB8227DFE4E00527BB6 /* CallAnswerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallAnswerAPI.swift; sourceTree = "<group>"; };
+		D8095BBA227E00A400527BB6 /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
 		D816347822607C890073B01F /* leftMarginLargeTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = leftMarginLargeTitle.swift; sourceTree = "<group>"; };
 		D816347A2260801B0073B01F /* thomas-charters-296769-unsplash.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "thomas-charters-296769-unsplash.jpg"; sourceTree = "<group>"; };
 		D820400F2243F5E7003D6750 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
@@ -119,8 +129,17 @@
 				D816347822607C890073B01F /* leftMarginLargeTitle.swift */,
 				D8784E12226097F4001269DC /* setDate.swift */,
 				D8D0BBC42262E31300A8D51F /* CallNewsAPI.swift */,
+				D8095B24227B8C3700527BB6 /* voiceRecognizer.swift */,
 			);
 			path = "2 - News View";
+			sourceTree = "<group>";
+		};
+		D8095BB7227DFE2D00527BB6 /* 3 - Voice Control */ = {
+			isa = PBXGroup;
+			children = (
+				D8095BB8227DFE4E00527BB6 /* CallAnswerAPI.swift */,
+			);
+			path = "3 - Voice Control";
 			sourceTree = "<group>";
 		};
 		D83A4A3D224A08FC00C10316 /* Icons */ = {
@@ -147,6 +166,7 @@
 		D84A734B22495B5700C9239A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				D8095BB7227DFE2D00527BB6 /* 3 - Voice Control */,
 				D8037C83226065640020C7D6 /* 2 - News View */,
 				D8D918BD224F8D0F009ACD07 /* 1 - Vision View */,
 			);
@@ -170,6 +190,7 @@
 				D860C19022611BEA007DB894 /* CardCell */,
 				D8D8D422224B7B0F009450C8 /* Object.swift */,
 				D8D8D425224BA691009450C8 /* StringProcess.swift */,
+				D8095BBA227E00A400527BB6 /* Answer.swift */,
 				D8D8D427224BACC1009450C8 /* LiveViewProcessing.swift */,
 				D8B45410224A832100228469 /* TapticEffectsService.swift */,
 				D8BFF6E22249673B003D119A /* BlurRoundedView.swift */,
@@ -236,6 +257,7 @@
 			children = (
 				D83A4A3D224A08FC00C10316 /* Icons */,
 				D820400F2243F5E7003D6750 /* background.jpg */,
+				D8095BB5227DFA3300527BB6 /* curioso-photography-1521810-unsplash.jpg */,
 				D816347A2260801B0073B01F /* thomas-charters-296769-unsplash.jpg */,
 			);
 			path = Images;
@@ -248,6 +270,7 @@
 				D8E236CF2243F19200FC02CC /* ZeroViewController.swift */,
 				D8E236B82243E52C00FC02CC /* SecondViewController.swift */,
 				D8D0BBC22261CB2100A8D51F /* TabBarController.swift */,
+				D8095B26227B8E4700527BB6 /* VoiceRecognizeController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -318,6 +341,7 @@
 				D83A4A3A224A08F900C10316 /* eye@2x.png in Resources */,
 				D82040102243F5E8003D6750 /* background.jpg in Resources */,
 				D83A4A3C224A08F900C10316 /* eye@3x.png in Resources */,
+				D8095BB6227DFA3300527BB6 /* curioso-photography-1521810-unsplash.jpg in Resources */,
 				D860C18F2260EB12007DB894 /* ExampleCell.xib in Resources */,
 				D8D0BBD72263146400A8D51F /* newspaper.png in Resources */,
 				D83A4A3B224A08F900C10316 /* eye.png in Resources */,
@@ -342,6 +366,10 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Emojimap/Emojimap.framework",
 				"${BUILT_PRODUCTS_DIR}/JGProgressHUD/JGProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/MDFInternationalization/MDFInternationalization.framework",
+				"${BUILT_PRODUCTS_DIR}/MDFTextAccessibility/MDFTextAccessibility.framework",
+				"${BUILT_PRODUCTS_DIR}/MaterialComponents/MaterialComponents.framework",
+				"${BUILT_PRODUCTS_DIR}/SpeechInjector/SpeechInjector.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/VerticalCardSwiper/VerticalCardSwiper.framework",
 			);
@@ -352,6 +380,10 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Emojimap.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JGProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFInternationalization.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFTextAccessibility.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialComponents.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SpeechInjector.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/VerticalCardSwiper.framework",
 			);
@@ -389,11 +421,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8095BB9227DFE4E00527BB6 /* CallAnswerAPI.swift in Sources */,
 				D84A734F22495C2700C9239A /* CallAPI.swift in Sources */,
 				D8D918BF224F8D55009ACD07 /* randomString.swift in Sources */,
 				D860C1932261225D007DB894 /* ExampleCardCell.swift in Sources */,
 				D860C1972261A772007DB894 /* Article.swift in Sources */,
+				D8095B25227B8C3700527BB6 /* voiceRecognizer.swift in Sources */,
 				D84DF71A225DE62E0088CBBA /* VoiceOver.swift in Sources */,
+				D8095BBB227E00A400527BB6 /* Answer.swift in Sources */,
+				D8095B27227B8E4700527BB6 /* VoiceRecognizeController.swift in Sources */,
 				D8B45411224A832100228469 /* TapticEffectsService.swift in Sources */,
 				D8BFF6E32249673B003D119A /* BlurRoundedView.swift in Sources */,
 				D8D918BC224F8CAA009ACD07 /* AnalyzingHUD.swift in Sources */,
