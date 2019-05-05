@@ -25,6 +25,10 @@ return_article = 'http://52.163.230.167:8080/v1/api/article/content'
 labels, colors = yoloModel.load_label("coco.names")
 net, ln = yoloModel.load_model()
 
+# Load drqa model
+token = "spacy"
+predictions = predictor.Predictor(model=None, tokenizer=token, normalize=True, embedding_file=None, num_workers=None)
+
 # route http posts to this method
 @app.route(image_to_text_API, methods=['GET', 'POST'])
 def predict():
@@ -113,8 +117,6 @@ def answer_question():
     article = res['articleContent']
     #predict and return
     #predict
-    token = "spacy"
-    predictions = predictor.Predictor(model=None, tokenizer=token, normalize=True, embedding_file=None, num_workers=None)
     answer = predictions.predict(document=article, question=question, candidates=None, top_n=3)
     #return
     response = {
