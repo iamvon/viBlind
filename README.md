@@ -1,4 +1,4 @@
-<h1 align="center"> Blind Vision </h1> <br>
+<h1 align="center"> viBlind </h1> <br>
 <p align="center">
   <a href="#">
     <img alt="BlindVision" title="BlindVíion" src="https://i.imgur.com/ispnxw6.png" width="300">
