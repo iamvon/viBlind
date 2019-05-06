@@ -26,6 +26,7 @@ import VerticalCardSwiper
 
 class ExampleCardCell: CardCell {
     
+    var hash_url: String = ""
     @IBOutlet weak var topicLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     
