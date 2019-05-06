@@ -27,7 +27,7 @@ class SecondViewController: UIViewController,VerticalCardSwiperDelegate, Vertica
         if segue.destination is VoiceRecognizeController
         {
             let vc = segue.destination as? VoiceRecognizeController
-            vc?.articleHash = self.articleHash
+            vc?.articleHash = Data[self.cardSwiper.focussedIndex!].hash
         }
     }
     
@@ -66,7 +66,7 @@ class SecondViewController: UIViewController,VerticalCardSwiperDelegate, Vertica
         if let cardCell = verticalCardSwiperView.dequeueReusableCell(withReuseIdentifier: "ExampleCell", for: index) as? ExampleCardCell {
             
             let article = Data[index]
-            articleHash = article.hash
+            cardCell.hash_url = article.hash
             cardCell.topicLabel.text = article.topic
             cardCell.titleLabel.text  = article.title
             cardCell.contentLabel.text  = article.content

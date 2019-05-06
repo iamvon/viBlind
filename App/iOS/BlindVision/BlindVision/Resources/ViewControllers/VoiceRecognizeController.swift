@@ -26,6 +26,8 @@ class VoiceRecognizeController: UIViewController, SFSpeechRecognizerDelegate {
         TapticEffectsService.performTapticFeedback(from: TapticEffectsService.TapticEngineFeedbackIdentifier.peek)
     }
     
+    var indexFocussed: Int = 0
+    
     var articleHash: String = ""
     var answerData: [Answer] = []
     
@@ -37,7 +39,7 @@ class VoiceRecognizeController: UIViewController, SFSpeechRecognizerDelegate {
     let vc = VoiceOver()
     
     override func viewDidLoad() {
-        print(articleHash)
+//        print(articleHash)
         
 //        var dem = 0
 //        while (answerData.isEmpty) {
@@ -103,6 +105,7 @@ class VoiceRecognizeController: UIViewController, SFSpeechRecognizerDelegate {
 //            startRecording()
            
             //CALL API ANSWERING
+            
             answerView.text = "Hmmm...let me think!"
             vc.sayThis(answerView.text)
             print(articleHash)
