@@ -1,7 +1,7 @@
 version: '3'
 services:
   viblind-ai:
-    image: tuanpmhd/viblind-ai:1.0.0
+    image: tuanpmhd/viblind-ai:1.0.1
     build: .
     ports:
      - "5000:5000"
